@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { formatGameDate, gameBySlug, games, levelLabel } from "@/lib/data";
+import { thumbSrc } from "@/lib/utils";
 import GameAlbum from "./ui";
 
 export function generateStaticParams() {
@@ -23,7 +24,7 @@ export default function GamePage({ params }: { params: { slug: string } }) {
     <main>
       <section className="hero" style={{ minHeight: "54vh" }}>
         <div className="hero-media">
-          <img src={game.cover} alt="" />
+          <img src={thumbSrc(game.cover)} alt="" />
         </div>
         <div className="hero-shade" />
         <div className="hero-content">

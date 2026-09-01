@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { Photo } from "@/lib/types";
 import { gameBySlug, levelLabel, playerHref, playerName } from "@/lib/data";
-import { downloadUrl, formatBytes } from "@/lib/utils";
+import { downloadUrl, formatBytes, thumbSrc } from "@/lib/utils";
 import { usePhotos } from "./PhotoProvider";
 
 export default function Lightbox({
@@ -21,6 +21,11 @@ export default function Lightbox({
   const photo = photos[index];
   const { favorites, toggleFav } = usePhotos();
   const game = gameBySlug(photo.game);
+  const [fullReady, setFullReady] = useState(false);
+
+  useEffect(() => {
+    setFullReady(false);
+  }, [photo?.src]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -65,7 +70,15 @@ export default function Lightbox({
         >
           ‹
         </button>
-        <img src={photo.src} alt={photo.caption} />
+        <div className="lb-frame">
+          <img src={thumbSrc(photo.src)} alt="" />
+          <img
+            src={photo.src}
+            alt={photo.caption}
+            onLoad={() => setFullReady(true)}
+            style={{ opacity: fullReady ? 1 : 0 }}
+          />
+        </div>
         <button
           className="lb-nav next"
           onClick={() => onIndex((index + 1) % photos.length)}

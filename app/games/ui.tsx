@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { formatGameDate, games, levelLabel } from "@/lib/data";
+import { thumbSrc } from "@/lib/utils";
 import type { TeamLevel } from "@/lib/types";
 
 export default function GamesBoard() {
@@ -26,7 +27,7 @@ export default function GamesBoard() {
         {list.map((g) => (
           <Link key={g.slug} href={`/games/${g.slug}`}>
             <figure className="shot" style={{ minHeight: 280 }}>
-              <img src={g.cover} alt="" />
+              <img src={thumbSrc(g.cover)} alt="" />
               <span className="tag">{levelLabel(g.level)}</span>
               <figcaption>
                 <div className="kicker" style={{ marginBottom: 4 }}>

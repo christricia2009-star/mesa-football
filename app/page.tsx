@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatGameDate, games, levelLabel, nextHomeGame, school } from "@/lib/data";
+import { thumbSrc } from "@/lib/utils";
 import HomeFilm from "@/components/HomeFilm";
 
 export default function HomePage() {
@@ -41,7 +42,7 @@ export default function HomePage() {
         </div>
         <div className="hero-media">
           <img
-            src="/gallery/tunnel-longhorn.jpg"
+            src={thumbSrc("/gallery/tunnel-longhorn.jpg")}
             alt="Mesa Verde Mavericks inflatable tunnel with the longhorn, smoke rolling onto the field"
           />
           <div className="lead-credit">Lead frame · the tunnel</div>

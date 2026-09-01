@@ -1,4 +1,5 @@
 import { fundraisers, school, social } from "@/lib/data";
+import { thumbSrc } from "@/lib/utils";
 
 export const metadata = { title: "Fundraisers" };
 
@@ -7,7 +8,7 @@ export default function FundraisersPage() {
     <main>
       <section className="hero" style={{ minHeight: "46vh" }}>
         <div className="hero-media">
-          <img src="/gallery/take-the-field.jpg" alt="Mavericks taking the field" />
+          <img src={thumbSrc("/gallery/take-the-field.jpg")} alt="Mavericks taking the field" />
         </div>
         <div className="hero-shade" />
         <div className="hero-content">

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { usePhotos } from "./PhotoProvider";
 import Lightbox from "./Lightbox";
 import { LEAD_PHOTO_ID } from "@/lib/photos";
+import { thumbSrc } from "@/lib/utils";
 
 export default function HomeFilm() {
   const { photos } = usePhotos();
@@ -18,7 +19,7 @@ export default function HomeFilm() {
       <div className="filmstrip">
         {shots[0] && (
           <figure className="shot tall" onClick={() => setOpen(0)} style={{ cursor: "pointer" }}>
-            <img src={shots[0].src} alt={shots[0].caption} />
+            <img src={thumbSrc(shots[0].src)} alt={shots[0].caption} />
             <span className="tag">Lead</span>
             <figcaption>{shots[0].caption}</figcaption>
           </figure>
@@ -30,7 +31,7 @@ export default function HomeFilm() {
             onClick={() => setOpen(i + 1)}
             style={{ cursor: "pointer" }}
           >
-            <img src={p.src} alt={p.caption} />
+            <img src={thumbSrc(p.src)} alt={p.caption} />
             <figcaption>{p.caption}</figcaption>
           </figure>
         ))}

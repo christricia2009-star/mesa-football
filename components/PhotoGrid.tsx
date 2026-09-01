@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Photo } from "@/lib/types";
 import { gameBySlug, levelLabel } from "@/lib/data";
+import { thumbSrc } from "@/lib/utils";
 import Lightbox from "./Lightbox";
 
 export default function PhotoGrid({
@@ -26,7 +27,7 @@ export default function PhotoGrid({
           const game = gameBySlug(p.game);
           return (
             <figure key={p.id} className="tile" onClick={() => setOpen(i)}>
-              <img src={p.src} alt={p.caption} />
+              <img src={thumbSrc(p.src)} alt={p.caption} loading="lazy" />
               <figcaption className="tile-meta">
                 {game ? `${levelLabel(game.level)} · ${game.opponent}` : ""}
                 {p.players.length ? ` · #${p.players.join(" #")}` : ""}

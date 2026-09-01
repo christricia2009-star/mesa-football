@@ -6,6 +6,11 @@ export function downloadUrl(src: string, filename: string) {
   return `/api/download?src=${encodeURIComponent(src)}&filename=${encodeURIComponent(filename)}`;
 }
 
+export function thumbSrc(src: string) {
+  if (!src.startsWith("/gallery/")) return src;
+  return `/gallery/thumbs/${src.slice("/gallery/".length)}`;
+}
+
 export function formatBytes(n?: number) {
   if (!n) return "";
   if (n < 1024) return `${n} B`;
