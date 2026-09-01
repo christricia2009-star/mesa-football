@@ -18,11 +18,6 @@ export default function HomePage() {
             <br />
             <span className="orange">MAVERICKS</span>
           </h1>
-          <p className="lede">
-            Friday night photos from the house that waited 48 years. Home-game
-            frames, tagged by jersey, searchable by family, downloadable at the
-            original resolution. No watermark. No cart. Just the night.
-          </p>
           <div className="hero-row">
             <Link href="/photos" className="pill orange">
               View photos
