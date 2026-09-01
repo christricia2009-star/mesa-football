@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { games, players } from "@/lib/data";
+import { games, levelLabel, playerHref, players } from "@/lib/data";
 import { usePhotos } from "./PhotoProvider";
 
 type Hit = { href: string; title: string; sub: string };
@@ -33,9 +33,9 @@ export default function CommandPalette({
       const name = `${p.first} ${p.last}`.toLowerCase();
       if (name.includes(query) || String(p.number) === query.replace("#", "")) {
         out.push({
-          href: `/players/${p.number}`,
-          title: `#${p.number} ${p.first} ${p.last}`,
-          sub: p.positions.join(" / "),
+          href: playerHref(p),
+          title: `${levelLabel(p.level)} #${p.number} ${p.first} ${p.last}`,
+          sub: p.positions.join(" / ") || levelLabel(p.level),
         });
       }
     });
@@ -43,7 +43,7 @@ export default function CommandPalette({
       if (g.opponent.toLowerCase().includes(query) || g.slug.includes(query)) {
         out.push({
           href: `/games/${g.slug}`,
-          title: `${g.location === "home" ? "vs" : "@"} ${g.opponent}`,
+          title: `${levelLabel(g.level)} ${g.location === "home" ? "vs" : "@"} ${g.opponent}`,
           sub: g.date,
         });
       }

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import type { Photo } from "@/lib/types";
-import { gameBySlug, playerName } from "@/lib/data";
+import { gameBySlug, levelLabel, playerHref, playerName } from "@/lib/data";
 import { downloadUrl, formatBytes } from "@/lib/utils";
 import { usePhotos } from "./PhotoProvider";
 
@@ -40,7 +40,9 @@ export default function Lightbox({
         <div className="lb-meta">
           <strong>{photo.caption}</strong>
           <div>
-            {game ? `${game.location === "home" ? "vs" : "@"} ${game.opponent}` : photo.game}
+            {game
+              ? `${levelLabel(game.level)} ${game.location === "home" ? "vs" : "@"} ${game.opponent}`
+              : photo.game}
             {photo.bytes ? ` · ${formatBytes(photo.bytes)} original` : " · original file"}
           </div>
         </div>
@@ -77,8 +79,12 @@ export default function Lightbox({
             <span style={{ color: "var(--muted)", fontSize: 12 }}>No jersey tags yet</span>
           )}
           {photo.players.map((n) => (
-            <Link key={n} href={`/players/${n}`} onClick={onClose}>
-              #{n} {playerName(n)}
+            <Link
+              key={n}
+              href={playerHref({ level: photo.level, number: n })}
+              onClick={onClose}
+            >
+              #{n} {playerName(n, photo.level)}
             </Link>
           ))}
         </div>

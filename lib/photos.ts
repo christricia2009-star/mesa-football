@@ -1,8 +1,10 @@
+import { oakmontPhotos } from "./oakmontPhotos";
+import { stVincentPhotos } from "./stVincentPhotos";
 import type { Photo } from "./types";
 
 export const LEAD_PHOTO_ID = "seed-lead-tunnel";
 
-export const seedPhotos: Photo[] = [
+const varsityPhotos: Photo[] = [
   {
     id: "seed-lead-tunnel",
     src: "/gallery/tunnel-longhorn.jpg",
@@ -10,6 +12,7 @@ export const seedPhotos: Photo[] = [
     originalName: "mesa-verde-tunnel.jpg",
     caption: "The tunnel. Smoke. The longhorn.",
     game: "green-orange-scrimmage",
+    level: "varsity",
     area: "tunnel",
     players: [],
     featured: true,
@@ -23,6 +26,7 @@ export const seedPhotos: Photo[] = [
     originalName: "tunnel-burst.jpg",
     caption: "Burst. #77, #50, #9 coming out of the smoke.",
     game: "green-orange-scrimmage",
+    level: "varsity",
     area: "tunnel",
     players: [77, 50, 9, 2, 3],
     featured: true,
@@ -36,6 +40,7 @@ export const seedPhotos: Photo[] = [
     originalName: "thirteen.jpg",
     caption: "#13 on the hash. Mesa Verde Sports in the background.",
     game: "green-orange-scrimmage",
+    level: "varsity",
     area: "sideline",
     players: [13, 23, 2],
     featured: true,
@@ -49,6 +54,7 @@ export const seedPhotos: Photo[] = [
     originalName: "take-the-field.jpg",
     caption: "Take the field. Orange jerseys, green bleachers, home turf.",
     game: "green-orange-scrimmage",
+    level: "varsity",
     area: "field",
     players: [5, 1, 24, 55, 23, 75, 9, 17],
     featured: true,
@@ -62,12 +68,19 @@ export const seedPhotos: Photo[] = [
     originalName: "huddle.jpg",
     caption: "The huddle. #75 in the middle of the orange paint.",
     game: "green-orange-scrimmage",
+    level: "varsity",
     area: "field",
     players: [75, 23, 55, 28],
     featured: true,
     uploadedAt: "2026-08-15T13:12:00",
     seed: true,
   },
+];
+
+export const seedPhotos: Photo[] = [
+  ...varsityPhotos,
+  ...stVincentPhotos,
+  ...oakmontPhotos,
 ];
 
 export function searchPhotos(photos: Photo[], q: string) {
@@ -78,6 +91,8 @@ export function searchPhotos(photos: Photo[], q: string) {
     if (p.caption.toLowerCase().includes(query)) return true;
     if (p.area.replace("-", " ").includes(query)) return true;
     if (p.game.replace(/-/g, " ").includes(query)) return true;
+    if (query === "jv" && p.level === "jv") return true;
+    if ((query === "varsity" || query === "var") && p.level === "varsity") return true;
     if (p.filename.toLowerCase().includes(query)) return true;
     if (!Number.isNaN(num) && p.players.includes(num)) return true;
     if (p.players.some((n) => String(n) === query.replace(/^#/, ""))) return true;

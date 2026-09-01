@@ -38,3 +38,7 @@ next-env.d.ts
 # photographer uploads (keep the folder)
 /public/uploads/*
 !/public/uploads/.gitkeep
+
+# source drop folders (copied into public/gallery)
+/Oakmont JV 8-28/
+/St Vincent Varsity 8-28/

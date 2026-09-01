@@ -1,4 +1,5 @@
 export type Grade = "Fr." | "So." | "Jr." | "Sr.";
+export type TeamLevel = "varsity" | "jv";
 
 export type AreaSlug =
   | "sideline"
@@ -13,6 +14,7 @@ export type AreaSlug =
   | "postgame";
 
 export interface Player {
+  level: TeamLevel;
   number: number;
   first: string;
   last: string;
@@ -26,10 +28,12 @@ export interface Player {
 export interface StaffMember {
   name: string;
   role: string;
+  level: TeamLevel;
 }
 
 export interface Game {
   slug: string;
+  level: TeamLevel;
   date: string;
   opponent: string;
   mascot: string;
@@ -68,6 +72,7 @@ export interface Photo {
   filename: string;
   caption: string;
   game: string;
+  level: TeamLevel;
   area: AreaSlug;
   players: number[];
   featured?: boolean;

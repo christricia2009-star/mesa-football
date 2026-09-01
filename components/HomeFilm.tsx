@@ -7,7 +7,7 @@ import { LEAD_PHOTO_ID } from "@/lib/photos";
 
 export default function HomeFilm() {
   const { photos } = usePhotos();
-  const featured = photos.filter((p) => p.featured);
+  const featured = photos.filter((p) => p.featured && p.level === "varsity");
   const lead = featured.find((p) => p.id === LEAD_PHOTO_ID) || featured[0];
   const rest = featured.filter((p) => p.id !== lead?.id).slice(0, 4);
   const shots = lead ? [lead, ...rest] : photos.slice(0, 5);

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Photo } from "@/lib/types";
-import { gameBySlug } from "@/lib/data";
+import { gameBySlug, levelLabel } from "@/lib/data";
 import Lightbox from "./Lightbox";
 
 export default function PhotoGrid({
@@ -28,7 +28,7 @@ export default function PhotoGrid({
             <figure key={p.id} className="tile" onClick={() => setOpen(i)}>
               <img src={p.src} alt={p.caption} />
               <figcaption className="tile-meta">
-                {game ? game.opponent : ""}
+                {game ? `${levelLabel(game.level)} · ${game.opponent}` : ""}
                 {p.players.length ? ` · #${p.players.join(" #")}` : ""}
               </figcaption>
             </figure>

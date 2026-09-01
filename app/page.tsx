@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatGameDate, games, nextHomeGame, school } from "@/lib/data";
+import { formatGameDate, games, levelLabel, nextHomeGame, school } from "@/lib/data";
 import HomeFilm from "@/components/HomeFilm";
 
 export default function HomePage() {
@@ -96,7 +96,7 @@ export default function HomePage() {
               <div className="when">{formatGameDate(g.date)}</div>
               <div>
                 <strong>
-                  vs {g.opponent} {g.mascot}
+                  {levelLabel(g.level)} vs {g.opponent} {g.mascot}
                 </strong>
                 <div style={{ color: "var(--muted)", fontSize: 13 }}>{g.venue}</div>
               </div>

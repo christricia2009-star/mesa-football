@@ -5,6 +5,7 @@ import type {
   Player,
   SocialLink,
   StaffMember,
+  TeamLevel,
 } from "./types";
 
 export const school = {
@@ -28,22 +29,25 @@ export const school = {
   ticketsUrl: "https://gofan.co/school/CA7982",
   maxPrepsUrl:
     "https://www.maxpreps.com/ca/citrus-heights/mesa-verde-mavericks/football/",
+  jvMaxPrepsUrl:
+    "https://www.maxpreps.com/ca/citrus-heights/mesa-verde-mavericks/football/jv/",
   juniorMavsUrl: "https://www.juniormavs.org/",
   season: "2026",
 };
 
 export const staff: StaffMember[] = [
-  { name: "Brett Tujague", role: "Head Coach · VP of Athletics" },
-  { name: "Jeff Moenning", role: "Assistant Coach" },
-  { name: "Jose Garcia", role: "Assistant Coach" },
-  { name: "Jason Smith", role: "Assistant Coach" },
-  { name: "Frank Negri", role: "Assistant Coach" },
-  { name: "James Finch", role: "Assistant Coach" },
-  { name: "James Taylor", role: "Assistant Coach" },
-  { name: "Kyler Powell", role: "Assistant Coach" },
+  { name: "Brett Tujague", role: "Head Coach · VP of Athletics", level: "varsity" },
+  { name: "Jeff Moenning", role: "Assistant Coach", level: "varsity" },
+  { name: "Jose Garcia", role: "Assistant Coach", level: "varsity" },
+  { name: "Jason Smith", role: "Assistant Coach", level: "varsity" },
+  { name: "Frank Negri", role: "Assistant Coach", level: "varsity" },
+  { name: "James Finch", role: "Assistant Coach", level: "varsity" },
+  { name: "James Taylor", role: "Assistant Coach", level: "varsity" },
+  { name: "Kyler Powell", role: "Assistant Coach", level: "varsity" },
+  { name: "Fernando Rodriquez", role: "JV Head Coach", level: "jv" },
 ];
 
-export const players: Player[] = [
+const varsityRoster: Omit<Player, "level">[] = [
   {
     number: 1,
     first: "Jalen",
@@ -365,9 +369,48 @@ export const players: Player[] = [
   },
 ];
 
+const jvRoster: Omit<Player, "level">[] = [
+  { number: 1, first: "Deangelo", last: "Martinez", grade: "So.", positions: [], height: "—", weight: "—", blurb: "Sophomore on the JV board." },
+  { number: 3, first: "Kamden", last: "Martens", grade: "So.", positions: [], height: "—", weight: "—", blurb: "Sophomore on the JV board." },
+  { number: 4, first: "London", last: "Colon", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 5, first: "Greyson", last: "Sellers", grade: "So.", positions: [], height: "—", weight: "—", blurb: "Sophomore on the JV board." },
+  { number: 6, first: "Jayden", last: "Wilhelm", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 9, first: "Daniel", last: "Munoz", grade: "So.", positions: [], height: "—", weight: "—", blurb: "Sophomore on the JV board." },
+  { number: 12, first: "Nathan", last: "Prado", grade: "So.", positions: [], height: "—", weight: "—", blurb: "Sophomore on the JV board." },
+  { number: 13, first: "Connor", last: "Jacobs", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 15, first: "Colton", last: "Worsham", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 17, first: "Cameron", last: "Cason", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 19, first: "Adrian", last: "Aguilar", grade: "So.", positions: [], height: "—", weight: "—", blurb: "Sophomore on the JV board." },
+  { number: 22, first: "Mason", last: "VanDyke", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 23, first: "Adrian", last: "Singh", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 24, first: "Connor", last: "Gay", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 33, first: "Eli", last: "Flanagan", grade: "So.", positions: [], height: "—", weight: "—", blurb: "Sophomore on the JV board. #33 vs Oakmont." },
+  { number: 34, first: "Turras", last: "Buggs", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 36, first: "Royce", last: "Cattaneo", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 55, first: "Adrian", last: "Romero", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 59, first: "Joel", last: "Pennucci", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 60, first: "Villiam", last: "Gudyma", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 62, first: "Juan", last: "Guzman", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 68, first: "Loyal", last: "Toetu Melei-Ma'Ae", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 70, first: "Giovanni", last: "Montoya", grade: "So.", positions: [], height: "—", weight: "—", blurb: "Sophomore on the JV board." },
+  { number: 72, first: "Justin", last: "Whitehurst", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 73, first: "Jude", last: "McGuire", grade: "Jr.", positions: [], height: "—", weight: "—", blurb: "Junior on the JV board." },
+  { number: 75, first: "Joseph", last: "Ambagis", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 77, first: "Jose", last: "Prieto", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 81, first: "JayDeauin", last: "Williamson", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 98, first: "Joseph", last: "Tollestrop", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+  { number: 99, first: "Matthew", last: "Peterson", grade: "Fr.", positions: [], height: "—", weight: "—", blurb: "Freshman on the JV board." },
+];
+
+export const players: Player[] = [
+  ...varsityRoster.map((p) => ({ ...p, level: "varsity" as const })),
+  ...jvRoster.map((p) => ({ ...p, level: "jv" as const })),
+];
+
 export const games: Game[] = [
   {
     slug: "green-orange-scrimmage",
+    level: "varsity",
     date: "2026-08-15",
     opponent: "Green vs Orange",
     mascot: "Scrimmage",
@@ -381,10 +424,27 @@ export const games: Game[] = [
     cover: "/gallery/tunnel-burst.jpg",
   },
   {
-    slug: "season-opener",
+    slug: "jv-vs-oakmont",
+    level: "jv",
     date: "2026-08-28",
-    opponent: "Season Opener",
-    mascot: "Home Opener",
+    opponent: "Oakmont",
+    mascot: "Vikings",
+    location: "home",
+    venue: "Maverick Stadium",
+    kickoff: "5:00 PM",
+    league: false,
+    photoNight: true,
+    confirmed: true,
+    result: "L 6–35",
+    note: "JV home opener. Oakmont 35–6 (MaxPreps).",
+    cover: "/gallery/jv-oakmont/IMG_6839.jpg",
+  },
+  {
+    slug: "vs-st-vincent",
+    level: "varsity",
+    date: "2026-08-28",
+    opponent: "St. Vincent",
+    mascot: "Mustangs",
     location: "home",
     venue: "Maverick Stadium",
     kickoff: "7:00 PM",
@@ -392,11 +452,12 @@ export const games: Game[] = [
     photoNight: true,
     confirmed: true,
     result: "L 0–40",
-    note: "First varsity result of 2026 (MaxPreps).",
-    cover: "/gallery/take-the-field.jpg",
+    note: "Varsity home opener. St. Vincent (Petaluma) 40–0.",
+    cover: "/gallery/varsity-st-vincent/IMG_6746.jpg",
   },
   {
     slug: "at-armijo",
+    level: "varsity",
     date: "2026-09-04",
     opponent: "Armijo",
     mascot: "Thunderbirds",
@@ -410,6 +471,7 @@ export const games: Game[] = [
   },
   {
     slug: "vs-golden-sierra",
+    level: "varsity",
     date: "2026-09-11",
     opponent: "Golden Sierra",
     mascot: "Grizzlies",
@@ -423,6 +485,7 @@ export const games: Game[] = [
   },
   {
     slug: "vs-rio-vista",
+    level: "varsity",
     date: "2026-09-18",
     opponent: "Rio Vista",
     mascot: "Ramblers",
@@ -437,6 +500,7 @@ export const games: Game[] = [
   },
   {
     slug: "at-vacaville-christian",
+    level: "varsity",
     date: "2026-09-25",
     opponent: "Vacaville Christian",
     mascot: "Lions",
@@ -450,6 +514,7 @@ export const games: Game[] = [
   },
   {
     slug: "vs-woodland-christian",
+    level: "varsity",
     date: "2026-10-02",
     opponent: "Woodland Christian",
     mascot: "Cardinals",
@@ -463,6 +528,7 @@ export const games: Game[] = [
   },
   {
     slug: "bye-week",
+    level: "varsity",
     date: "2026-10-09",
     opponent: "Bye Week",
     mascot: "Open",
@@ -477,6 +543,7 @@ export const games: Game[] = [
   },
   {
     slug: "at-lindhurst",
+    level: "varsity",
     date: "2026-10-16",
     opponent: "Lindhurst",
     mascot: "Blazers",
@@ -490,6 +557,7 @@ export const games: Game[] = [
   },
   {
     slug: "vs-highlands",
+    level: "varsity",
     date: "2026-10-23",
     opponent: "Highlands",
     mascot: "Scots",
@@ -503,6 +571,7 @@ export const games: Game[] = [
   },
   {
     slug: "at-san-juan",
+    level: "varsity",
     date: "2026-10-30",
     opponent: "San Juan",
     mascot: "Spartans",
@@ -728,13 +797,21 @@ export const social: SocialLink[] = [
   },
 ];
 
-export function playerByNumber(n: number) {
-  return players.find((p) => p.number === n);
+export function playerByNumber(n: number, level: TeamLevel = "varsity") {
+  return players.find((p) => p.number === n && p.level === level);
 }
 
-export function playerName(n: number) {
-  const p = playerByNumber(n);
+export function playerName(n: number, level: TeamLevel = "varsity") {
+  const p = playerByNumber(n, level);
   return p ? `${p.first} ${p.last}` : `#${n}`;
+}
+
+export function playerHref(p: Pick<Player, "level" | "number">) {
+  return `/players/${p.level}/${p.number}`;
+}
+
+export function levelLabel(level: TeamLevel) {
+  return level === "jv" ? "JV" : "Varsity";
 }
 
 export function gameBySlug(slug: string) {

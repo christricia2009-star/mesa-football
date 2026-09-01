@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatGameDate, games, school } from "@/lib/data";
+import { formatGameDate, games, levelLabel, school } from "@/lib/data";
 
 export const metadata = { title: "2026 Schedule" };
 
@@ -16,10 +16,8 @@ export default function SchedulePage() {
           </h1>
           <hr className="rule" />
           <p>
-            Confirmed dates are locked from the 2026 slate (Armijo, Golden Sierra,
-            the opener). Remaining Sierra Delta nights are plotted on Fridays so
-            families can plan — mark TBA until the league card is final. Orange
-            rows are home photo nights.
+            Varsity and JV share the Friday board. Confirmed dates are locked
+            from the 2026 slate. Orange rows are home photo nights.
           </p>
         </div>
         <a className="pill" href={school.maxPrepsUrl} target="_blank" rel="noreferrer">
@@ -36,7 +34,7 @@ export default function SchedulePage() {
             <div className="when">{formatGameDate(g.date)}</div>
             <div>
               <strong>
-                {g.location === "home" ? "vs" : "@"} {g.opponent} {g.mascot}
+                {levelLabel(g.level)} · {g.location === "home" ? "vs" : "@"} {g.opponent} {g.mascot}
               </strong>
               <div style={{ color: "var(--muted)", fontSize: 13 }}>{g.venue}</div>
             </div>
