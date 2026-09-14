@@ -10,6 +10,13 @@ export default function HomePage() {
   return (
     <main>
       <section className="hero hero-lead">
+        <div className="hero-media">
+          <img
+            src={thumbSrc("/gallery/tunnel-longhorn.jpg")}
+            alt="Mesa Verde Mavericks inflatable tunnel with the longhorn, smoke rolling onto the field"
+          />
+        </div>
+        <div className="hero-shade" />
         <div className="hero-content">
           <div className="kicker">
             {school.city} · {school.league} · {school.season}
@@ -40,13 +47,7 @@ export default function HomePage() {
             )}
           </div>
         </div>
-        <div className="hero-media">
-          <img
-            src={thumbSrc("/gallery/tunnel-longhorn.jpg")}
-            alt="Mesa Verde Mavericks inflatable tunnel with the longhorn, smoke rolling onto the field"
-          />
-          <div className="lead-credit">Lead frame · the tunnel</div>
-        </div>
+        <div className="lead-credit">Lead frame · the tunnel</div>
       </section>
 
       <div className="marquee" aria-hidden>

@@ -165,36 +165,42 @@ button { cursor: pointer; }
 
 .hero.hero-lead {
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(300px, 50vw);
+  grid-template-columns: 1fr;
   place-items: stretch;
-  background:
-    radial-gradient(ellipse at 78% 38%, rgba(242, 107, 33, 0.16), transparent 42%),
-    var(--green-950);
+  background: var(--green-950);
 }
 .hero.hero-lead .hero-media {
-  position: relative;
-  inset: auto;
-  padding: 20px 28px 20px 12px;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
+  position: absolute;
+  inset: 0;
+  padding: 0;
 }
 .hero.hero-lead .hero-media img {
-  flex: 1;
-  min-height: 0;
-  height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center 28%;
-  border-radius: 2px;
-  box-shadow: 0 40px 110px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(242, 107, 33, 0.3);
+  object-position: center 32%;
+  border-radius: 0;
+  box-shadow: none;
 }
-.hero.hero-lead .hero-shade { display: none; }
+.hero.hero-lead .hero-shade {
+  display: block;
+  background:
+    linear-gradient(90deg, rgba(4, 20, 14, 0.78) 0%, rgba(4, 20, 14, 0.4) 38%, rgba(4, 20, 14, 0.08) 68%),
+    linear-gradient(180deg, rgba(4, 20, 14, 0.18) 0%, rgba(4, 20, 14, 0.08) 45%, rgba(4, 20, 14, 0.72) 100%);
+}
 .hero.hero-lead .hero-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 56px 28px 64px 48px;
-  max-width: none;
+  padding: 56px 48px 72px;
+  max-width: 980px;
+}
+.hero.hero-lead .lead-credit {
+  position: absolute;
+  right: 28px;
+  bottom: 20px;
+  z-index: 2;
+  margin: 0;
 }
 .lead-credit {
   font-family: var(--font-mono), ui-monospace, monospace;
@@ -768,21 +774,13 @@ label.field input, label.field select, label.field textarea {
     border-bottom: 1px solid var(--line);
   }
   .section, .hero-content, .footer { padding-left: 20px; padding-right: 20px; }
-  .hero.hero-lead {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  .hero.hero-lead .hero-media {
-    height: 72vh;
-    padding: 0;
-    order: -1;
-  }
-  .hero.hero-lead .hero-media img {
-    border-radius: 0;
-    box-shadow: none;
-  }
   .hero.hero-lead .hero-content {
-    padding: 28px 20px 40px;
+    padding: 28px 20px 48px;
+    max-width: none;
+  }
+  .hero.hero-lead .lead-credit {
+    right: 16px;
+    bottom: 12px;
   }
   .filmstrip, .area-grid, .raise-grid, .player-hero, .form-grid, .footer-grid {
     grid-template-columns: 1fr;
