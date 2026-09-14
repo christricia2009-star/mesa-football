@@ -1,3 +1,5 @@
+import { goldenSierraPhotos } from "./goldenSierraPhotos";
+import { jvGoldenSierraPhotos } from "./jvGoldenSierraPhotos";
 import { oakmontPhotos } from "./oakmontPhotos";
 import { stVincentPhotos } from "./stVincentPhotos";
 import type { Photo } from "./types";
@@ -81,6 +83,8 @@ export const seedPhotos: Photo[] = [
   ...varsityPhotos,
   ...stVincentPhotos,
   ...oakmontPhotos,
+  ...goldenSierraPhotos,
+  ...jvGoldenSierraPhotos,
 ];
 
 export function searchPhotos(photos: Photo[], q: string) {

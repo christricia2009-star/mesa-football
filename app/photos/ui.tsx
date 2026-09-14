@@ -53,7 +53,7 @@ export default function GalleryClient() {
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Search #33, Flanagan, Oakmont, JV…"
+          placeholder="Search #3, Martens, Golden Sierra, JV…"
         />
       </div>
 
