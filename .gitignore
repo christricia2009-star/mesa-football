@@ -35,6 +35,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# live poll ballots + password hashes
+/data/poll-store.json
+
 # photographer uploads (keep the folder)
 /public/uploads/*
 !/public/uploads/.gitkeep

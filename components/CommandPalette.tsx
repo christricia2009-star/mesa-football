@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { games, levelLabel, playerHref, players } from "@/lib/data";
+import { jerseyQuery } from "@/lib/photos";
 import { usePhotos } from "./PhotoProvider";
 
 type Hit = { href: string; title: string; sub: string };
@@ -25,13 +26,35 @@ export default function CommandPalette({
     if (!query) {
       return [
         { href: "/photos", title: "Photos", sub: "All frames" },
+        { href: "/poll", title: "Player of the Week", sub: "Vote · one account, one ballot" },
         { href: "/players", title: "Roster", sub: "Get to know the Mavericks" },
         { href: "/schedule", title: "Schedule", sub: "2026 Fridays" },
       ];
     }
+    const jersey = jerseyQuery(query);
+    if (jersey !== null) {
+      players
+        .filter((p) => p.number === jersey)
+        .forEach((p) => {
+          out.push({
+            href: playerHref(p),
+            title: `${levelLabel(p.level)} #${p.number} ${p.first} ${p.last}`,
+            sub: p.positions.join(" / ") || levelLabel(p.level),
+          });
+        });
+      const tagged = photos.filter((p) => p.players.includes(jersey)).length;
+      if (tagged) {
+        out.push({
+          href: `/photos?jersey=${jersey}`,
+          title: `${tagged} frame${tagged === 1 ? "" : "s"} tagged #${jersey}`,
+          sub: "Photos · exact jersey",
+        });
+      }
+      return out.slice(0, 12);
+    }
     players.forEach((p) => {
       const name = `${p.first} ${p.last}`.toLowerCase();
-      if (name.includes(query) || String(p.number) === query.replace("#", "")) {
+      if (name.includes(query)) {
         out.push({
           href: playerHref(p),
           title: `${levelLabel(p.level)} #${p.number} ${p.first} ${p.last}`,
@@ -48,9 +71,12 @@ export default function CommandPalette({
         });
       }
     });
+    if (query === "poll" || query === "vote" || query === "potw" || query.includes("player of the week")) {
+      out.push({ href: "/poll", title: "Player of the Week", sub: "Vote" });
+    }
     photos.forEach((p) => {
       if (p.caption.toLowerCase().includes(query)) {
-        out.push({ href: "/photos", title: p.caption, sub: p.filename });
+        out.push({ href: `/photos`, title: p.caption, sub: p.filename });
       }
     });
     return out.slice(0, 12);

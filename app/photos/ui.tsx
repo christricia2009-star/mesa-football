@@ -7,9 +7,13 @@ import { games, levelLabel } from "@/lib/data";
 import { searchPhotos } from "@/lib/photos";
 import type { TeamLevel } from "@/lib/types";
 
-export default function GalleryClient() {
+export default function GalleryClient({
+  initialQuery = "",
+}: {
+  initialQuery?: string;
+}) {
   const { photos, favorites } = usePhotos();
-  const [q, setQ] = useState("");
+  const [q, setQ] = useState(initialQuery);
   const [level, setLevel] = useState<"all" | TeamLevel>("all");
   const [game, setGame] = useState("all");
   const [favOnly, setFavOnly] = useState(false);

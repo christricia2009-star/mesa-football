@@ -31,6 +31,7 @@ export default function Footer() {
           <Link href="/photos">Photos</Link>
           <Link href="/games">Game albums</Link>
           <Link href="/players">Get to know the roster</Link>
+          <Link href="/poll">Player of the Week</Link>
           <Link href="/schedule">2026 schedule</Link>
           <Link href="/fundraisers">Fundraisers</Link>
         </div>

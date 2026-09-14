@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Jersey from "@/components/Jersey";
+import PotwMark from "@/components/PotwMark";
 import { levelLabel, playerByNumber, playerHref, players } from "@/lib/data";
 import type { TeamLevel } from "@/lib/types";
 import PlayerFilm from "./ui";
@@ -61,6 +62,7 @@ export default function PlayerPage({
             <br />
             <span className="orange">{player.last.toUpperCase()}</span>
           </h1>
+          <PotwMark level={player.level} number={player.number} />
           <p className="lede">{player.blurb}</p>
           <div className="stat-row">
             <div>

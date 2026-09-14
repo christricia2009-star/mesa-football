@@ -8,6 +8,7 @@ const links = [
   { href: "/photos", label: "Photos" },
   { href: "/games", label: "Albums" },
   { href: "/players", label: "Roster" },
+  { href: "/poll", label: "Vote" },
   { href: "/schedule", label: "Schedule" },
   { href: "/fundraisers", label: "Boost" },
 ];
@@ -38,8 +39,8 @@ export default function Nav({ onSearch }: { onSearch: () => void }) {
         ))}
       </nav>
       <div className="nav-actions">
-        <button className="icon-btn" onClick={onSearch} aria-label="Search" title="Search (⌘K)">
-          ⌕
+        <button className="pill nav-search" onClick={onSearch} aria-label="Search" title="Search (⌘K)">
+          Search
         </button>
         <button
           className="icon-btn nav-toggle"

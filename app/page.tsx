@@ -77,6 +77,25 @@ export default function HomePage() {
         <HomeFilm />
       </section>
 
+      <section className="section" style={{ paddingTop: 8 }}>
+        <div className="section-head">
+          <div>
+            <div className="kicker">Your vote · their title</div>
+            <h2 className="display md">
+              PLAYER OF THE <span className="orange">WEEK</span>
+            </h2>
+            <hr className="rule" />
+            <p>
+              Varsity and JV each have a ballot from Friday’s frames. Sign up
+              with an email — one account, one vote per board.
+            </p>
+          </div>
+          <Link href="/poll" className="pill orange">
+            Vote now
+          </Link>
+        </div>
+      </section>
+
       <section className="section" style={{ paddingTop: 24 }}>
         <div className="section-head">
           <div>
