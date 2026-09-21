@@ -46,6 +46,7 @@ export interface Game {
   result?: string;
   note?: string;
   cover: string;
+  homecoming?: boolean;
 }
 
 export interface Area {

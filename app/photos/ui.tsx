@@ -7,6 +7,12 @@ import { games, levelLabel } from "@/lib/data";
 import { searchPhotos } from "@/lib/photos";
 import type { TeamLevel } from "@/lib/types";
 
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+function chipDate(iso: string) {
+  return `${MONTHS[Number(iso.slice(5, 7)) - 1]} ${Number(iso.slice(8))}`;
+}
+
 export default function GalleryClient({
   initialQuery = "",
 }: {
@@ -25,6 +31,16 @@ export default function GalleryClient({
       ),
     [level]
   );
+  const repeatedOpponents = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const g of levelGames) {
+      const key = `${g.level}:${g.opponent}`;
+      counts.set(key, (counts.get(key) || 0) + 1);
+    }
+    return new Set(
+      [...counts.entries()].filter(([, n]) => n > 1).map(([key]) => key)
+    );
+  }, [levelGames]);
 
   const filtered = useMemo(() => {
     let list = searchPhotos(photos, q);
@@ -103,6 +119,7 @@ export default function GalleryClient({
           >
             {level === "all" ? `${levelLabel(g.level)} · ` : ""}
             {g.opponent}
+            {repeatedOpponents.has(`${g.level}:${g.opponent}`) ? ` · ${chipDate(g.date)}` : ""}
           </button>
         ))}
         <button className={favOnly ? "chip on" : "chip"} onClick={() => setFavOnly((v) => !v)}>

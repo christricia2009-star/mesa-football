@@ -227,6 +227,41 @@ button { cursor: pointer; }
   color: var(--orange-400);
   margin-top: 10px;
 }
+
+/* Quiet photographer mark. Cream, never orange, so the Mavericks stay the voice. */
+.photo-credit {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: rgba(243, 234, 216, 0.72);
+  text-shadow: 0 1px 2px rgba(4, 20, 14, 0.9);
+  pointer-events: auto;
+}
+a.photo-credit:hover { color: var(--cream); }
+.hero > .photo-credit {
+  top: 18px;
+  right: 22px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+.lb-photo {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.lb-photo .photo-credit {
+  top: auto;
+  right: auto;
+  left: 12px;
+  bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
 .kicker {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 11px;
@@ -421,7 +456,8 @@ button { cursor: pointer; }
   position: relative;
   min-height: 0;
 }
-.lb-stage img {
+.lb-stage img,
+.lb-photo img {
   max-width: min(92vw, 1400px);
   max-height: calc(100vh - 180px);
   object-fit: contain;
@@ -430,8 +466,9 @@ button { cursor: pointer; }
 .lb-frame {
   display: grid;
   place-items: center;
+  min-width: 0;
 }
-.lb-frame img {
+.lb-photo img {
   grid-area: 1 / 1;
   transition: opacity 0.2s ease;
 }
@@ -683,7 +720,9 @@ label.field input, label.field select, label.field textarea {
   color: var(--orange-400);
   margin: 0 0 14px;
 }
-.footer a { display: block; color: var(--muted); margin: 6px 0; font-size: 14px; }
+.footer-grid a { display: block; color: var(--muted); margin: 6px 0; font-size: 14px; }
+.footer-grid p a,
+.legal a { display: inline; margin: 0; color: var(--orange-300); }
 .footer a:hover { color: var(--cream); }
 .legal {
   margin-top: 36px;
@@ -798,6 +837,8 @@ label.field input, label.field select, label.field textarea {
   display: flex;
   flex-direction: column;
 }
+.poll-photo { position: relative; }
+.poll-photo img,
 .poll-card img {
   width: 100%;
   height: 220px;
@@ -873,6 +914,70 @@ label.field input, label.field select, label.field textarea {
   width: 0;
   opacity: 0;
 }
+/* HOMECOMING WEEK */
+.hc-banner {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr auto;
+  gap: 18px 32px;
+  align-items: center;
+  padding: 16px 28px 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(100deg, #0c2818 0%, #143d26 46%, #2a1408 100%);
+  border-bottom: 3px solid var(--orange-500);
+}
+.hc-banner::after {
+  content: "HOMECOMING";
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-46%);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(72px, 10vw, 120px);
+  letter-spacing: 0.04em;
+  line-height: 0.8;
+  color: rgba(242, 107, 33, 0.09);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.hc-lockup { position: relative; z-index: 1; }
+.hc-lockup .kicker { margin-bottom: 6px; }
+.hc-title { font-size: clamp(40px, 5vw, 58px); }
+.hc-lockup p {
+  margin: 8px 0 0;
+  color: var(--cream);
+  font-size: 14px;
+  max-width: 280px;
+}
+.hc-events {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hc-events li {
+  min-width: 160px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+.hc-events strong {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange-400);
+}
+.hc-banner .pill { position: relative; z-index: 1; }
+
 .potw-banner {
   margin-bottom: 20px;
   padding: 14px 18px;
@@ -920,6 +1025,17 @@ label.field input, label.field select, label.field textarea {
     right: 16px;
     bottom: 12px;
   }
+  .hero > .photo-credit {
+    top: 12px;
+    right: 12px;
+  }
+  .hc-banner {
+    grid-template-columns: 1fr;
+    padding: 16px 20px 18px;
+    gap: 14px;
+  }
+  .hc-banner::after { display: none; }
+  .hc-lockup p { max-width: none; }
   .filmstrip, .area-grid, .raise-grid, .player-hero, .form-grid, .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -934,4 +1050,7 @@ label.field input, label.field select, label.field textarea {
   .masonry { columns: 1; }
   .poll-grid { grid-template-columns: 1fr; }
   .auth-form { grid-template-columns: 1fr; }
+  .photo-credit { font-size: 8px; letter-spacing: 0.04em; }
+  .lb-photo .photo-credit { font-size: 11px; }
+  .hc-events { flex-direction: column; gap: 8px; }
 }

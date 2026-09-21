@@ -5,6 +5,7 @@ import { usePhotos } from "./PhotoProvider";
 import Lightbox from "./Lightbox";
 import { LEAD_PHOTO_ID } from "@/lib/photos";
 import { thumbSrc } from "@/lib/utils";
+import PhotoCredit from "./PhotoCredit";
 
 export default function HomeFilm() {
   const { photos } = usePhotos();
@@ -20,6 +21,7 @@ export default function HomeFilm() {
         {shots[0] && (
           <figure className="shot tall" onClick={() => setOpen(0)} style={{ cursor: "pointer" }}>
             <img src={thumbSrc(shots[0].src)} alt={shots[0].caption} />
+            <PhotoCredit />
             <span className="tag">Lead</span>
             <figcaption>{shots[0].caption}</figcaption>
           </figure>
@@ -32,6 +34,7 @@ export default function HomeFilm() {
             style={{ cursor: "pointer" }}
           >
             <img src={thumbSrc(p.src)} alt={p.caption} />
+            <PhotoCredit />
             <figcaption>{p.caption}</figcaption>
           </figure>
         ))}

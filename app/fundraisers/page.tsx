@@ -1,3 +1,4 @@
+import PhotoCredit from "@/components/PhotoCredit";
 import { fundraisers, school, social } from "@/lib/data";
 import { thumbSrc } from "@/lib/utils";
 
@@ -11,6 +12,7 @@ export default function FundraisersPage() {
           <img src={thumbSrc("/gallery/take-the-field.jpg")} alt="Mavericks taking the field" />
         </div>
         <div className="hero-shade" />
+        <PhotoCredit />
         <div className="hero-content">
           <div className="kicker">Boost the program</div>
           <h1 className="display lg">

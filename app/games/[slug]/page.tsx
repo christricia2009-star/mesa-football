@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { formatGameDate, gameBySlug, games, levelLabel } from "@/lib/data";
 import { thumbSrc } from "@/lib/utils";
+import PhotoCredit from "@/components/PhotoCredit";
 import GameAlbum from "./ui";
 
 export function generateStaticParams() {
@@ -27,9 +28,11 @@ export default function GamePage({ params }: { params: { slug: string } }) {
           <img src={thumbSrc(game.cover)} alt="" />
         </div>
         <div className="hero-shade" />
+        <PhotoCredit />
         <div className="hero-content">
           <div className="kicker">
-            {levelLabel(game.level)} · {formatGameDate(game.date)} · {game.kickoff} · {game.venue}
+            {levelLabel(game.level)}
+            {game.homecoming ? " · Homecoming" : ""} · {formatGameDate(game.date)} · {game.kickoff} · {game.venue}
           </div>
           <h1 className="display lg">
             {game.location === "home" ? "VS" : "@"}{" "}

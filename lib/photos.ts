@@ -1,5 +1,7 @@
 import { goldenSierraPhotos } from "./goldenSierraPhotos";
+import { highlandsPhotos } from "./highlandsPhotos";
 import { jvGoldenSierraPhotos } from "./jvGoldenSierraPhotos";
+import { jvHighlandsPhotos } from "./jvHighlandsPhotos";
 import { oakmontPhotos } from "./oakmontPhotos";
 import { stVincentPhotos } from "./stVincentPhotos";
 import type { Photo } from "./types";
@@ -85,6 +87,8 @@ export const seedPhotos: Photo[] = [
   ...oakmontPhotos,
   ...goldenSierraPhotos,
   ...jvGoldenSierraPhotos,
+  ...highlandsPhotos,
+  ...jvHighlandsPhotos,
 ];
 
 /** Bare jersey search like `5` or `#5` — not a substring of 15 / 25 / 35. */

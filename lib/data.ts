@@ -35,6 +35,23 @@ export const school = {
   season: "2026",
 };
 
+export const photographer = {
+  name: "True Family Photography",
+  handle: "@truefamilyphotography",
+  href: "https://www.instagram.com/truefamilyphotography/",
+};
+
+/** Spirit week through the Saturday dance, Pacific Time. */
+export function homecomingLive(now = new Date()) {
+  const day = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Los_Angeles",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(now);
+  return day >= "2026-09-21" && day <= "2026-09-26";
+}
+
 export const staff: StaffMember[] = [
   { name: "Brett Tujague", role: "Head Coach · VP of Athletics", level: "varsity" },
   { name: "Jeff Moenning", role: "Assistant Coach", level: "varsity" },
@@ -502,6 +519,21 @@ export const games: Game[] = [
     cover: "/gallery/varsity-golden-sierra/_DSC9174.jpg",
   },
   {
+    slug: "jv-at-highlands",
+    level: "jv",
+    date: "2026-09-18",
+    opponent: "Highlands",
+    mascot: "Scots",
+    location: "away",
+    venue: "Highlands High School, North Highlands",
+    kickoff: "5:00 PM",
+    league: true,
+    photoNight: true,
+    confirmed: true,
+    note: "JV on the road at Highlands. Full album from the sideline.",
+    cover: "/gallery/jv-at-highlands/_DSC9836.jpg",
+  },
+  {
     slug: "at-highlands",
     level: "varsity",
     date: "2026-09-18",
@@ -511,24 +543,27 @@ export const games: Game[] = [
     venue: "Highlands High School, North Highlands",
     kickoff: "7:00 PM",
     league: true,
-    photoNight: false,
+    photoNight: true,
     confirmed: true,
-    note: "League night on the road (MaxPreps). Next home photo night is still TBA on the later slate.",
-    cover: "/gallery/huddle-actual.jpg",
+    result: "W 28–14",
+    note: "League night on the road. Highlands 14–28 (MaxPreps). Full album is up.",
+    cover: "/gallery/varsity-at-highlands/_DSC0220.jpg",
   },
   {
-    slug: "at-vacaville-christian",
+    slug: "vs-lindhurst",
     level: "varsity",
     date: "2026-09-25",
-    opponent: "Vacaville Christian",
-    mascot: "Lions",
-    location: "away",
-    venue: "Vacaville Christian",
+    opponent: "Lindhurst",
+    mascot: "Blazers",
+    location: "home",
+    venue: "Maverick Stadium",
     kickoff: "7:00 PM",
     league: true,
-    photoNight: false,
-    confirmed: false,
-    cover: "/gallery/thirteen.jpg",
+    photoNight: true,
+    confirmed: true,
+    homecoming: true,
+    note: "Homecoming. Rally at 11:20 AM, kickoff 7:00 PM, dance Saturday at 7:00 PM.",
+    cover: "/gallery/tunnel-longhorn.jpg",
   },
   {
     slug: "vs-woodland-christian",
@@ -571,6 +606,7 @@ export const games: Game[] = [
     league: true,
     photoNight: false,
     confirmed: false,
+    note: "Placeholder. The confirmed Lindhurst night is Homecoming, Friday Sep 25.",
     cover: "/gallery/take-the-field.jpg",
   },
   {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { school, social } from "@/lib/data";
+import { photographer, school, social } from "@/lib/data";
 
 export default function Footer() {
   return (
@@ -21,6 +21,13 @@ export default function Footer() {
           <p style={{ color: "var(--muted)", maxWidth: 360 }}>
             {school.stadium}, {school.city}. Home game photography for families —
             true-resolution downloads, always free.
+          </p>
+          <p style={{ color: "var(--muted)", maxWidth: 360 }}>
+            Frames by{" "}
+            <a href={photographer.href} target="_blank" rel="noreferrer">
+              {photographer.handle}
+            </a>
+            .
           </p>
           <p style={{ color: "var(--orange-400)", letterSpacing: "0.12em", fontSize: 13 }}>
             {school.motto}
@@ -68,7 +75,13 @@ export default function Footer() {
           Independent parent photography site · not an official San Juan Unified page ·{" "}
           {school.hashtag}
         </span>
-        <span>Original files. No watermarks. No paywall.</span>
+        <span>
+          Frames by{" "}
+          <a href={photographer.href} target="_blank" rel="noreferrer">
+            {photographer.handle}
+          </a>
+          . Original downloads stay clean. No paywall.
+        </span>
       </div>
     </footer>
   );

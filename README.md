@@ -1,6 +1,6 @@
 # Mesa Verde Mavericks — Photos
 
-Home-game photography site for **Mesa Verde High School football** in Citrus Heights, California. Families browse albums, search by jersey, and download **original-resolution** files. No watermark. No paywall.
+Home-game photography site for **Mesa Verde High School football** in Citrus Heights, California. Families browse albums, search by jersey, and download **original-resolution** files. A small `@truefamilyphotography` credit sits on each frame. Downloads stay clean. No paywall.
 
 Forest green & orange. New stadium, 2023. Motto: *Once a Maverick, Always a Maverick.*
 

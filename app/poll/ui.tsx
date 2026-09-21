@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { levelLabel, playerByNumber, playerHref } from "@/lib/data";
+import PhotoCredit from "@/components/PhotoCredit";
 import { thumbSrc } from "@/lib/utils";
 import type { TeamLevel } from "@/lib/types";
 import type { PollCandidate } from "@/lib/poll";
@@ -268,7 +269,10 @@ function BoardSection({
               key={`${c.level}-${c.number}`}
               className={`poll-card${selected ? " on" : ""}${isWinner ? " win" : ""}`}
             >
-              <img src={thumbSrc(c.photo)} alt="" />
+              <div className="poll-photo">
+                <img src={thumbSrc(c.photo)} alt="" />
+                <PhotoCredit />
+              </div>
               <div className="poll-card-body">
                 <div className="kicker">
                   {levelLabel(c.level)} · #{c.number}

@@ -6,6 +6,7 @@ import type { Photo } from "@/lib/types";
 import { gameBySlug, levelLabel, playerHref, playerName } from "@/lib/data";
 import { downloadUrl, formatBytes, thumbSrc } from "@/lib/utils";
 import { usePhotos } from "./PhotoProvider";
+import PhotoCredit from "./PhotoCredit";
 
 export default function Lightbox({
   photos,
@@ -71,13 +72,16 @@ export default function Lightbox({
           ‹
         </button>
         <div className="lb-frame">
-          <img src={thumbSrc(photo.src)} alt="" />
-          <img
-            src={photo.src}
-            alt={photo.caption}
-            onLoad={() => setFullReady(true)}
-            style={{ opacity: fullReady ? 1 : 0 }}
-          />
+          <div className="lb-photo">
+            <img src={thumbSrc(photo.src)} alt="" />
+            <img
+              src={photo.src}
+              alt={photo.caption}
+              onLoad={() => setFullReady(true)}
+              style={{ opacity: fullReady ? 1 : 0 }}
+            />
+            <PhotoCredit />
+          </div>
         </div>
         <button
           className="lb-nav next"

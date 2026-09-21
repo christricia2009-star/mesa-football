@@ -39,6 +39,7 @@ export default function SchedulePage() {
               <div style={{ color: "var(--muted)", fontSize: 13 }}>{g.venue}</div>
             </div>
             <div>
+              {g.homecoming && <span className="badge photo">Homecoming</span>}{" "}
               {g.league && <span className="badge">League</span>}{" "}
               {g.location === "home" ? (
                 <span className="badge home">Home</span>

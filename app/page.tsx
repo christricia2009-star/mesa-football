@@ -1,11 +1,14 @@
 import Link from "next/link";
-import { formatGameDate, games, levelLabel, nextHomeGame, school } from "@/lib/data";
+import { formatGameDate, games, homecomingLive, levelLabel, nextHomeGame, school } from "@/lib/data";
 import { thumbSrc } from "@/lib/utils";
 import HomeFilm from "@/components/HomeFilm";
+import PhotoCredit from "@/components/PhotoCredit";
 
 export default function HomePage() {
   const next = nextHomeGame();
-  const photoNights = games.filter((g) => g.photoNight && g.slug !== "bye-week");
+  const photoNights = games.filter(
+    (g) => g.location === "home" && g.photoNight && g.slug !== "bye-week"
+  );
 
   return (
     <main>
@@ -17,6 +20,7 @@ export default function HomePage() {
           />
         </div>
         <div className="hero-shade" />
+        <PhotoCredit />
         <div className="hero-content">
           <div className="kicker">
             {school.city} · {school.league} · {school.season}
@@ -52,8 +56,11 @@ export default function HomePage() {
 
       <div className="marquee" aria-hidden>
         <span>
-          {school.motto} · FOREST GREEN & ORANGE · {school.stadium.toUpperCase()} ·{" "}
-          {school.hashtag} · ONCE A MAVERICK ALWAYS A MAVERICK · {school.motto} ·
+          {school.motto} · {homecomingLive() ? "HOMECOMING WEEK · " : ""}
+          FOREST GREEN & ORANGE · {school.stadium.toUpperCase()} · {school.hashtag} ·{" "}
+          {homecomingLive() ? "RALLY FRIDAY · DANCE SATURDAY · " : ""}
+          ONCE A MAVERICK ALWAYS A MAVERICK · {school.motto} ·{" "}
+          {homecomingLive() ? "HOMECOMING WEEK · " : ""}
           FOREST GREEN & ORANGE · {school.hashtag} ·&nbsp;
         </span>
       </div>
@@ -117,6 +124,7 @@ export default function HomePage() {
                 <div style={{ color: "var(--muted)", fontSize: 13 }}>{g.venue}</div>
               </div>
               <div>
+                {g.homecoming && <span className="badge photo">Homecoming</span>}{" "}
                 {g.league && <span className="badge">League</span>}{" "}
                 {g.confirmed ? <span className="badge">Locked</span> : <span className="badge">TBA</span>}
               </div>
