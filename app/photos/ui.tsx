@@ -37,9 +37,11 @@ export default function GalleryClient({
       const key = `${g.level}:${g.opponent}`;
       counts.set(key, (counts.get(key) || 0) + 1);
     }
-    return new Set(
-      [...counts.entries()].filter(([, n]) => n > 1).map(([key]) => key)
-    );
+    const repeated = new Set<string>();
+    counts.forEach((n, key) => {
+      if (n > 1) repeated.add(key);
+    });
+    return repeated;
   }, [levelGames]);
 
   const filtered = useMemo(() => {
