@@ -136,9 +136,16 @@ button { cursor: pointer; }
   display: inline-flex;
   align-items: center;
 }
-.nav-search:hover {
+.nav-search:hover,
+.nav-follow:hover {
   color: var(--cream);
   background: rgba(242, 107, 33, 0.12);
+}
+.nav-follow {
+  display: inline-flex;
+  align-items: center;
+  border-color: var(--orange-500);
+  color: var(--orange-300);
 }
 .pill.orange {
   background: var(--orange-500);
@@ -710,7 +717,7 @@ label.field input, label.field select, label.field textarea {
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr;
   gap: 32px;
 }
 .footer h4 {

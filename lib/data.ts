@@ -41,6 +41,13 @@ export const photographer = {
   href: "https://www.instagram.com/truefamilyphotography/",
 };
 
+/** Family page for this site. Not Mesa Verde High School athletics. */
+export const facebookPage = {
+  name: "MesaVerde Football",
+  href: "https://www.facebook.com/profile.php?id=61594789795122",
+  note: "Family photo page for this site. Not the school program.",
+};
+
 /** Spirit week through the Saturday dance, Pacific Time. */
 export function homecomingLive(now = new Date()) {
   const day = new Intl.DateTimeFormat("en-CA", {
@@ -824,12 +831,6 @@ export const social: SocialLink[] = [
     handle: "@mvhsconnect",
     href: "https://www.instagram.com/mvhsconnect/",
     note: "Student government — we do not manage this account.",
-  },
-  {
-    name: "Facebook",
-    handle: "MVHS Athletics",
-    href: "https://www.facebook.com/search/top/?q=Mesa%20Verde%20High%20School%20Athletics",
-    note: "Search the school athletics page — we do not manage this account.",
   },
   {
     name: "School site",

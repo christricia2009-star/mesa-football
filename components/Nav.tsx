@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { facebookPage } from "@/lib/data";
 
 const links = [
   { href: "/photos", label: "Photos" },
@@ -39,6 +40,14 @@ export default function Nav({ onSearch }: { onSearch: () => void }) {
         ))}
       </nav>
       <div className="nav-actions">
+        <a
+          className="pill nav-follow"
+          href={facebookPage.href}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Facebook
+        </a>
         <button className="pill nav-search" onClick={onSearch} aria-label="Search" title="Search (⌘K)">
           Search
         </button>

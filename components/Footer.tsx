@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { photographer, school, social } from "@/lib/data";
+import { facebookPage, photographer, school, social } from "@/lib/data";
 
 export default function Footer() {
   return (
@@ -41,6 +41,13 @@ export default function Footer() {
           <Link href="/poll">Player of the Week</Link>
           <Link href="/schedule">2026 schedule</Link>
           <Link href="/fundraisers">Fundraisers</Link>
+        </div>
+        <div>
+          <h4>Follow the photos</h4>
+          <a href={facebookPage.href} target="_blank" rel="noreferrer">
+            Facebook · {facebookPage.name}
+          </a>
+          <p style={{ color: "var(--muted)", margin: "8px 0 0" }}>{facebookPage.note}</p>
         </div>
         <div>
           <h4>We don’t manage these</h4>

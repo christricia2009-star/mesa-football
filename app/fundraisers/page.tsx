@@ -1,5 +1,5 @@
 import PhotoCredit from "@/components/PhotoCredit";
-import { fundraisers, school, social } from "@/lib/data";
+import { facebookPage, fundraisers, school, social } from "@/lib/data";
 import { thumbSrc } from "@/lib/utils";
 
 export const metadata = { title: "Fundraisers" };
@@ -44,9 +44,13 @@ export default function FundraisersPage() {
           <div className="status">Elsewhere</div>
           <h3>THE ACCOUNTS WE DON’T RUN</h3>
           <p>
-            School athletics lives on Instagram, Facebook, and X. We link them so
-            families can follow — we do not post there, and this site is not an
-            official district page.
+            This site’s own page is{" "}
+            <a href={facebookPage.href} target="_blank" rel="noreferrer" style={{ color: "var(--orange-400)" }}>
+              {facebookPage.name} on Facebook
+            </a>
+            . It is a family photo follow, not the school program. School athletics
+            still lives on the accounts below. We do not post there, and this site
+            is not an official district page.
           </p>
           <p>
             {social.map((s) => (
