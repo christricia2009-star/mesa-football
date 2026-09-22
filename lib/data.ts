@@ -43,7 +43,7 @@ export const photographer = {
 
 /** Family page for this site. Not Mesa Verde High School athletics. */
 export const facebookPage = {
-  name: "MesaVerde Football",
+  name: "MesaVerde Football Photos",
   href: "https://www.facebook.com/profile.php?id=61594789795122",
   note: "Family photo page for this site. Not the school program.",
 };
