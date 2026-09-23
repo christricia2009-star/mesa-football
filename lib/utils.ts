@@ -6,10 +6,6 @@ export function paidDownloadUrl(sessionId: string, id: string) {
   return `/api/download?session_id=${encodeURIComponent(sessionId)}&id=${encodeURIComponent(id)}`;
 }
 
-export function paidZipUrl(sessionId: string) {
-  return `/api/download/zip?session_id=${encodeURIComponent(sessionId)}`;
-}
-
 export function thumbSrc(src: string) {
   if (!src.startsWith("/gallery/")) return src;
   return `/gallery/thumbs/${src.slice("/gallery/".length)}`;
