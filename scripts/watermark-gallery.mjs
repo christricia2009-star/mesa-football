@@ -38,54 +38,32 @@ function hash32(text) {
 const TILE = 1200;
 
 function gridSvg(size) {
-  const font = Math.max(15, Math.round(size / 42));
-  const stepX = Math.round(font * 10.2);
-  const stepY = Math.round(font * 2.7);
+  const font = Math.max(14, Math.round(size / 46));
+  const stepX = Math.round(font * 16);
+  const stepY = Math.round(font * 7);
   const span = size * 2;
-  const texts = [];
-  const pushGrid = (angle, label, textSize) => {
-    const lines = [];
-    for (let y = -span; y < size + span; y += stepY) {
-      for (let x = -span; x < size + span; x += stepX) {
-        lines.push(`<text x="${x}" y="${y}" font-size="${textSize}">${label}</text>`);
-      }
+  const lines = [];
+  for (let y = -span; y < size + span; y += stepY) {
+    for (let x = -span; x < size + span; x += stepX) {
+      lines.push(`<text x="${x}" y="${y}" font-size="${font}">@TRUEFAMILYPHOTOGRAPHY</text>`);
     }
-    texts.push(
-      `<g transform="rotate(${angle} ${Math.round(size / 2)} ${Math.round(size / 2)})">${lines.join("")}</g>`
-    );
-  };
-  pushGrid(-28, "MESAVERDEFOOTBALL.COM", font);
-  pushGrid(24, "@TRUEFAMILYPHOTOGRAPHY", Math.max(13, Math.round(font * 0.72)));
-  const stroke = Math.max(2, Math.round(font / 11));
+  }
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
   <style>
     text {
-      font-family: Impact, "Arial Black", Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       font-weight: 700;
       fill: #ffffff;
-      fill-opacity: 0.96;
+      fill-opacity: 0.9;
       stroke: #04140e;
-      stroke-width: ${stroke};
-      stroke-opacity: 0.92;
+      stroke-width: 1;
+      stroke-opacity: 0.35;
       paint-order: stroke fill;
     }
   </style>
-  <g opacity="0.58">${texts.join("")}</g>
+  <g opacity="0.08" transform="rotate(-24 ${Math.round(size / 2)} ${Math.round(size / 2)})">${lines.join("")}</g>
 </svg>`;
-}
-
-function bandSvg(width, height) {
-  const band = Math.max(28, Math.round(Math.min(width, height) / 16));
-  const stroke = Math.max(3, Math.round(band / 14));
-  return Buffer.from(`<?xml version="1.0" encoding="UTF-8"?>
-<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
-  <text x="50%" y="54%" text-anchor="middle"
-    font-family="Impact, Arial Black, Arial, sans-serif" font-weight="700"
-    font-size="${band}" letter-spacing="1"
-    fill="#ffffff" fill-opacity="0.96" stroke="#04140e" stroke-width="${stroke}" stroke-opacity="0.94"
-    paint-order="stroke fill" opacity="0.72">MESAVERDEFOOTBALL.COM</text>
-</svg>`);
 }
 
 let masterPng;
@@ -135,10 +113,7 @@ async function renderMarked(source, dest, { longEdge, width, quality, seedKey })
     tile = await sharp(tile).resize(edge, edge).png().toBuffer();
   }
   await sharp(data)
-    .composite([
-      { input: tile, tile: true, blend: "over" },
-      { input: bandSvg(info.width, info.height), top: 0, left: 0 },
-    ])
+    .composite([{ input: tile, tile: true, blend: "over" }])
     .jpeg({ quality, mozjpeg: true, chromaSubsampling: "4:2:0" })
     .toFile(dest);
 }
