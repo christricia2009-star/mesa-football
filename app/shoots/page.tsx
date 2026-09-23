@@ -5,6 +5,7 @@ import { listedShoots } from "@/lib/shoots";
 import { thumbSrc } from "@/lib/utils";
 import BookShootForm from "./book-form";
 
+export const dynamic = "force-dynamic";
 export const metadata = { title: "1-1 Shoots" };
 
 function origin() {

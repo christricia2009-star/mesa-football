@@ -5,9 +5,7 @@ import ShootQr from "@/components/ShootQr";
 import { shootByCode } from "@/lib/shoots";
 import ShootGallery from "./gallery";
 
-export function generateStaticParams() {
-  return [];
-}
+export const dynamic = "force-dynamic";
 
 export function generateMetadata({ params }: { params: { code: string } }) {
   const folder = shootByCode(params.code);
