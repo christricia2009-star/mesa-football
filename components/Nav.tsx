@@ -8,6 +8,7 @@ import { useCart } from "./CartProvider";
 
 const links = [
   { href: "/photos", label: "Photos" },
+  { href: "/shoots", label: "Shoots" },
   { href: "/games", label: "Albums" },
   { href: "/players", label: "Roster" },
   { href: "/poll", label: "Vote" },
