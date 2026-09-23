@@ -10,6 +10,8 @@ import {
   quoteCart,
 } from "@/lib/shop";
 
+const PHOTO_TAX_CODE = "txcd_10501000";
+
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -58,6 +60,7 @@ export async function POST(req: Request) {
           product_data: {
             name: line.label,
             description: `${line.count} clean originals. JV and varsity from this night.`,
+            tax_code: PHOTO_TAX_CODE,
           },
         },
       };
@@ -71,6 +74,7 @@ export async function POST(req: Request) {
           product_data: {
             name: line.label,
             description: `${line.count} clean originals from this game.`,
+            tax_code: PHOTO_TAX_CODE,
           },
         },
       };
@@ -87,19 +91,25 @@ export async function POST(req: Request) {
         product_data: {
           name: quote.ids.length === 1 ? "Mesa Verde photo" : `${quote.ids.length} Mesa Verde photos`,
           description: "Clean original files. The site preview stays watermarked.",
+          tax_code: PHOTO_TAX_CODE,
         },
       },
     });
   }
 
   const origin = new URL(req.url).origin;
-  const session = await stripe.checkout.sessions.create({
-    mode: "payment",
-    line_items: lineItems,
-    metadata: packed,
-    success_url: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${origin}/cart`,
-  });
+  let session;
+  try {
+    session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      line_items: lineItems,
+      metadata: packed,
+      success_url: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/cart`,
+    });
+  } catch {
+    return NextResponse.json({ error: "Checkout did not start." }, { status: 502 });
+  }
 
   if (!session.url) {
     return NextResponse.json({ error: "Checkout did not start." }, { status: 502 });
