@@ -55,14 +55,14 @@ function gridSvg(size) {
       font-family: Arial, Helvetica, sans-serif;
       font-weight: 700;
       fill: #ffffff;
-      fill-opacity: 0.95;
+      fill-opacity: 1;
       stroke: #04140e;
       stroke-width: 1.25;
-      stroke-opacity: 0.7;
+      stroke-opacity: 1;
       paint-order: stroke fill;
     }
   </style>
-  <g opacity="0.22" transform="rotate(-24 ${Math.round(size / 2)} ${Math.round(size / 2)})">${lines.join("")}</g>
+  <g opacity="0.2" transform="rotate(-24 ${Math.round(size / 2)} ${Math.round(size / 2)})">${lines.join("")}</g>
 </svg>`;
 }
 
