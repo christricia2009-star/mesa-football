@@ -6,19 +6,25 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "watermark": "node scripts/watermark-gallery.mjs"
   },
   "dependencies": {
+    "@vercel/blob": "^2.8.0",
+    "archiver": "^8.0.0",
+    "next": "14.2.18",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.18"
+    "stripe": "^22.6.2"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/archiver": "^8.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.18"
+    "eslint-config-next": "14.2.18",
+    "sharp": "^0.35.4",
+    "typescript": "^5"
   }
 }

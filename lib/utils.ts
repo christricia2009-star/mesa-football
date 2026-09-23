@@ -2,8 +2,12 @@ export function cn(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
 }
 
-export function downloadUrl(src: string, filename: string) {
-  return `/api/download?src=${encodeURIComponent(src)}&filename=${encodeURIComponent(filename)}`;
+export function paidDownloadUrl(sessionId: string, id: string) {
+  return `/api/download?session_id=${encodeURIComponent(sessionId)}&id=${encodeURIComponent(id)}`;
+}
+
+export function paidZipUrl(sessionId: string) {
+  return `/api/download/zip?session_id=${encodeURIComponent(sessionId)}`;
 }
 
 export function thumbSrc(src: string) {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import PackOffers from "@/components/PackOffers";
 import PhotoGrid from "@/components/PhotoGrid";
 import { usePhotos } from "@/components/PhotoProvider";
 import { games, levelLabel } from "@/lib/data";
@@ -62,14 +63,16 @@ export default function GalleryClient({
           </h1>
           <hr className="rule" />
           <p>
-            Varsity and JV are separate boards. Search a jersey, a last name, or
-            a game, then save the original — not a compressed copy.
+            Varsity and JV are separate games. One photo is $1. One game is $10.
+            Both games from the same night are $20. Previews stay marked.
           </p>
         </div>
         <div style={{ color: "var(--muted)", fontFamily: "var(--font-mono)", fontSize: 13 }}>
           {filtered.length} / {photos.length} frames
         </div>
       </div>
+
+      <PackOffers />
 
       <div className="search-wrap">
         <input

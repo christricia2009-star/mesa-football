@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { facebookPage } from "@/lib/data";
+import { useCart } from "./CartProvider";
 
 const links = [
   { href: "/photos", label: "Photos" },
@@ -17,6 +18,7 @@ const links = [
 export default function Nav({ onSearch }: { onSearch: () => void }) {
   const path = usePathname();
   const [open, setOpen] = useState(false);
+  const { count } = useCart();
 
   return (
     <header className={open ? "nav open" : "nav"}>
@@ -40,6 +42,9 @@ export default function Nav({ onSearch }: { onSearch: () => void }) {
         ))}
       </nav>
       <div className="nav-actions">
+        <Link href="/cart" className={path.startsWith("/cart") ? "pill nav-cart on" : "pill nav-cart"}>
+          Cart{count ? ` ${count}` : ""}
+        </Link>
         <a
           className="pill nav-follow"
           href={facebookPage.href}

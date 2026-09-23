@@ -1,3 +1,4 @@
+import GuardedImage from "@/components/GuardedImage";
 import PhotoCredit from "@/components/PhotoCredit";
 import { facebookPage, fundraisers, school, social } from "@/lib/data";
 import { thumbSrc } from "@/lib/utils";
@@ -9,7 +10,7 @@ export default function FundraisersPage() {
     <main>
       <section className="hero" style={{ minHeight: "46vh" }}>
         <div className="hero-media">
-          <img src={thumbSrc("/gallery/take-the-field.jpg")} alt="Mavericks taking the field" />
+          <GuardedImage src={thumbSrc("/gallery/take-the-field.jpg")} alt="Mavericks taking the field" />
         </div>
         <div className="hero-shade" />
         <PhotoCredit />

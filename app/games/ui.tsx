@@ -5,6 +5,7 @@ import Link from "next/link";
 import { formatGameDate, games, levelLabel } from "@/lib/data";
 import { thumbSrc } from "@/lib/utils";
 import type { TeamLevel } from "@/lib/types";
+import GuardedImage from "@/components/GuardedImage";
 import PhotoCredit from "@/components/PhotoCredit";
 
 export default function GamesBoard() {
@@ -28,7 +29,7 @@ export default function GamesBoard() {
         {list.map((g) => (
           <Link key={g.slug} href={`/games/${g.slug}`}>
             <figure className="shot" style={{ minHeight: 280 }}>
-              <img src={thumbSrc(g.cover)} alt="" />
+              <GuardedImage src={thumbSrc(g.cover)} alt="" />
               <PhotoCredit link={false} />
               <span className="tag">{levelLabel(g.level)}</span>
               <figcaption>

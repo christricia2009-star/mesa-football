@@ -45,3 +45,7 @@ next-env.d.ts
 # source drop folders (copied into public/gallery)
 /Oakmont JV 8-28/
 /St Vincent Varsity 8-28/
+
+# clean originals. Public gallery files are watermarked previews.
+/storage/
+.env*

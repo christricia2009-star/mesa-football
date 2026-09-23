@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { Photo } from "@/lib/types";
 import { gameBySlug, levelLabel, playerHref, playerName } from "@/lib/data";
-import { downloadUrl, formatBytes, thumbSrc } from "@/lib/utils";
+import { GAME_PRICE_LABEL, NIGHT_PRICE_LABEL, nightPack, PHOTO_PRICE_LABEL } from "@/lib/shop";
+import { formatBytes, paidDownloadUrl, thumbSrc } from "@/lib/utils";
+import { useCart } from "./CartProvider";
 import { usePhotos } from "./PhotoProvider";
 import PhotoCredit from "./PhotoCredit";
 
@@ -20,8 +22,8 @@ export default function Lightbox({
   onIndex: (i: number) => void;
 }) {
   const photo = photos[index];
-  const { favorites, toggleFav } = usePhotos();
-  const game = gameBySlug(photo.game);
+  const { favorites, toggleFav, photos: allPhotos } = usePhotos();
+  const { add, remove, has, covers, addGame, removeGame, addNight, removeNight, hasGame, hasNight, orderFor } = useCart();
   const [fullReady, setFullReady] = useState(false);
 
   useEffect(() => {
@@ -40,6 +42,12 @@ export default function Lightbox({
 
   if (!photo) return null;
 
+  const game = gameBySlug(photo.game);
+  const paid = orderFor(photo);
+  const inCart = covers(photo);
+  const night = game ? nightPack(game.date, allPhotos) : null;
+  const gameInCart = game ? hasGame(game.slug) || (night ? hasNight(night.date) : false) : false;
+
   return (
     <div className="lb" role="dialog" aria-modal="true">
       <div className="lb-top">
@@ -56,9 +64,26 @@ export default function Lightbox({
           <button className="pill" onClick={() => toggleFav(photo.id)}>
             {favorites.includes(photo.id) ? "♥ Saved" : "♡ Save"}
           </button>
-          <a className="pill orange" href={downloadUrl(photo.src, photo.originalName)}>
-            Download original
-          </a>
+          {paid ? (
+            <a className="pill orange" href={paidDownloadUrl(paid.sessionId, photo.id)}>
+              Download original
+            </a>
+          ) : (
+            <button
+              className="pill orange"
+              onClick={() => {
+                if (has(photo.id)) remove(photo.id);
+                else if (!inCart) add(photo.id);
+              }}
+            >
+              {inCart ? `In cart · ${PHOTO_PRICE_LABEL}` : `Add · ${PHOTO_PRICE_LABEL}`}
+            </button>
+          )}
+          {inCart && !paid && (
+            <Link className="pill" href="/cart" onClick={onClose}>
+              Cart
+            </Link>
+          )}
           <button className="icon-btn" onClick={onClose} aria-label="Close">
             ×
           </button>
@@ -73,13 +98,21 @@ export default function Lightbox({
         </button>
         <div className="lb-frame">
           <div className="lb-photo">
-            <img src={thumbSrc(photo.src)} alt="" />
-            <img
-              src={photo.src}
-              alt={photo.caption}
-              onLoad={() => setFullReady(true)}
-              style={{ opacity: fullReady ? 1 : 0 }}
-            />
+            <span
+              className="guarded"
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+            >
+              <img src={thumbSrc(photo.src)} alt="" draggable={false} />
+              <img
+                src={photo.src}
+                alt={photo.caption}
+                draggable={false}
+                onLoad={() => setFullReady(true)}
+                style={{ opacity: fullReady ? 1 : 0 }}
+              />
+              <span className="guarded-shield" aria-hidden="true" />
+            </span>
             <PhotoCredit />
           </div>
         </div>
@@ -91,6 +124,33 @@ export default function Lightbox({
         </button>
       </div>
       <div className="lb-bot">
+        <div className="lb-side">
+        {!paid && game && (
+          <div className="lb-packs">
+            <button
+              className={gameInCart ? "pill orange" : "pill"}
+              onClick={() => {
+                if (night && hasNight(night.date)) return;
+                if (hasGame(game.slug)) removeGame(game.slug);
+                else addGame(game.slug);
+              }}
+            >
+              {night && hasNight(night.date)
+                ? "In the night"
+                : hasGame(game.slug)
+                  ? `Game added · ${GAME_PRICE_LABEL}`
+                  : `Whole game · ${GAME_PRICE_LABEL}`}
+            </button>
+            {night && (
+              <button
+                className={hasNight(night.date) ? "pill orange" : "pill"}
+                onClick={() => (hasNight(night.date) ? removeNight(night.date) : addNight(night.date))}
+              >
+                {hasNight(night.date) ? `Night added · ${NIGHT_PRICE_LABEL}` : `Whole night · ${NIGHT_PRICE_LABEL}`}
+              </button>
+            )}
+          </div>
+        )}
         <div className="player-pills">
           {photo.players.length === 0 && (
             <span style={{ color: "var(--muted)", fontSize: 12 }}>No jersey tags yet</span>
@@ -105,8 +165,9 @@ export default function Lightbox({
             </Link>
           ))}
         </div>
+        </div>
         <span className="lb-meta">
-          {index + 1} / {photos.length} · ← → to flip · Esc to close
+          {index + 1} / {photos.length} · marked preview · {PHOTO_PRICE_LABEL} for the clean file · ← → · Esc
         </span>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { usePhotos } from "./PhotoProvider";
 import Lightbox from "./Lightbox";
 import { LEAD_PHOTO_ID } from "@/lib/photos";
 import { thumbSrc } from "@/lib/utils";
+import GuardedImage from "./GuardedImage";
 import PhotoCredit from "./PhotoCredit";
 
 export default function HomeFilm() {
@@ -20,7 +21,7 @@ export default function HomeFilm() {
       <div className="filmstrip">
         {shots[0] && (
           <figure className="shot tall" onClick={() => setOpen(0)} style={{ cursor: "pointer" }}>
-            <img src={thumbSrc(shots[0].src)} alt={shots[0].caption} />
+            <GuardedImage src={thumbSrc(shots[0].src)} alt={shots[0].caption} />
             <PhotoCredit />
             <span className="tag">Lead</span>
             <figcaption>{shots[0].caption}</figcaption>
@@ -33,7 +34,7 @@ export default function HomeFilm() {
             onClick={() => setOpen(i + 1)}
             style={{ cursor: "pointer" }}
           >
-            <img src={thumbSrc(p.src)} alt={p.caption} />
+            <GuardedImage src={thumbSrc(p.src)} alt={p.caption} />
             <PhotoCredit />
             <figcaption>{p.caption}</figcaption>
           </figure>

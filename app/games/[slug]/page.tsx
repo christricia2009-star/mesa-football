@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { formatGameDate, gameBySlug, games, levelLabel } from "@/lib/data";
 import { thumbSrc } from "@/lib/utils";
+import GuardedImage from "@/components/GuardedImage";
 import PhotoCredit from "@/components/PhotoCredit";
 import GameAlbum from "./ui";
 
@@ -25,7 +26,7 @@ export default function GamePage({ params }: { params: { slug: string } }) {
     <main>
       <section className="hero" style={{ minHeight: "54vh" }}>
         <div className="hero-media">
-          <img src={thumbSrc(game.cover)} alt="" />
+          <GuardedImage src={thumbSrc(game.cover)} alt="" />
         </div>
         <div className="hero-shade" />
         <PhotoCredit />

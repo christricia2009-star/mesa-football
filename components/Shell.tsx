@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Nav from "./Nav";
 import CommandPalette, { useCommandHotkey } from "./CommandPalette";
+import { CartProvider } from "./CartProvider";
 import { PhotoProvider } from "./PhotoProvider";
 
 export default function Shell({ children }: { children: React.ReactNode }) {
@@ -11,10 +12,12 @@ export default function Shell({ children }: { children: React.ReactNode }) {
 
   return (
     <PhotoProvider>
-      <div className="grain" aria-hidden />
-      <Nav onSearch={() => setSearch(true)} />
-      {children}
-      <CommandPalette open={search} onClose={() => setSearch(false)} />
+      <CartProvider>
+        <div className="grain" aria-hidden />
+        <Nav onSearch={() => setSearch(true)} />
+        {children}
+        <CommandPalette open={search} onClose={() => setSearch(false)} />
+      </CartProvider>
     </PhotoProvider>
   );
 }

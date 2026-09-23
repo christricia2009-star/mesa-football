@@ -19,8 +19,8 @@ export default function Footer() {
             <span className="orange">MAVERICKS</span>
           </h3>
           <p style={{ color: "var(--muted)", maxWidth: 360 }}>
-            {school.stadium}, {school.city}. Home game photography for families —
-            true-resolution downloads, always free.
+            {school.stadium}, {school.city}. Home game photography for families.
+            Previews are marked. Clean originals are $1 each, $10 for one game, or $20 for the whole night.
           </p>
           <p style={{ color: "var(--muted)", maxWidth: 360 }}>
             Frames by{" "}
@@ -87,7 +87,7 @@ export default function Footer() {
           <a href={photographer.href} target="_blank" rel="noreferrer">
             {photographer.handle}
           </a>
-          . Original downloads stay clean. No paywall.
+          . Clean originals are $1, $10 a game, or $20 a night, with no watermark.
         </span>
       </div>
     </footer>

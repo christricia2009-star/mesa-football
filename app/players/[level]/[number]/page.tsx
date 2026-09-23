@@ -84,7 +84,7 @@ export default function PlayerPage({
           </div>
           <p style={{ color: "var(--muted)", fontSize: 14 }}>
             Photos tagged to this {levelLabel(player.level).toLowerCase()} jersey.
-            Families can download any original at full resolution.
+            Clean originals are $1 each.
           </p>
         </div>
       </div>

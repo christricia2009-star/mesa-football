@@ -778,7 +778,7 @@ export const fundraisers: Fundraiser[] = [
     when: "Orders open in October",
     summary:
       "Fence-line banners for the senior class — name, number, and a photo from this site, printed large enough for grandma to see from the top row.",
-    how: "Pick a favorite frame from the photos (true-resolution download), then submit the order form.",
+    how: "Buy the frame you want ($1), then send that file with the order.",
     contact: "travis.miller@sanjuan.edu",
   },
   {

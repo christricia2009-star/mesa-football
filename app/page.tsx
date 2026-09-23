@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatGameDate, games, homecomingLive, levelLabel, nextHomeGame, school } from "@/lib/data";
+import GuardedImage from "@/components/GuardedImage";
 import HomeFilm from "@/components/HomeFilm";
 import PhotoCredit from "@/components/PhotoCredit";
 
@@ -13,7 +14,7 @@ export default function HomePage() {
     <main>
       <section className="hero hero-lead">
         <div className="hero-media">
-          <img
+          <GuardedImage
             src="/gallery/tunnel-longhorn-hero.jpg"
             alt="Green and orange Mavericks inflatable tunnel on the field, WELCOME TO THE CHUTE across the bleachers"
           />

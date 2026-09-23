@@ -30,8 +30,9 @@ export const metadata: Metadata = {
     template: "%s · Mesa Verde Mavericks",
   },
   description:
-    "Home-game photography for Mesa Verde Mavericks football in Citrus Heights. Albums, roster, schedule, fundraisers, and true-resolution downloads.",
+    "Home-game photography for Mesa Verde Mavericks football in Citrus Heights. Albums, roster, schedule, and $1 original downloads.",
   icons: { icon: "/brand/maverick-crest.jpg" },
+  referrer: "same-origin",
 };
 
 export const viewport = {
