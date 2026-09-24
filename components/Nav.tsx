@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { facebookPage } from "@/lib/data";
+import { facebookPage, photographer } from "@/lib/data";
 import { useCart } from "./CartProvider";
 
 const links = [
@@ -40,11 +40,25 @@ export default function Nav({ onSearch }: { onSearch: () => void }) {
             {l.label}
           </Link>
         ))}
+        <a className="nav-social" href={photographer.href} target="_blank" rel="noreferrer">
+          Instagram
+        </a>
+        <a className="nav-social" href={facebookPage.href} target="_blank" rel="noreferrer">
+          Facebook
+        </a>
       </nav>
       <div className="nav-actions">
         <Link href="/cart" className={path.startsWith("/cart") ? "pill nav-cart on" : "pill nav-cart"}>
           Cart{count ? ` ${count}` : ""}
         </Link>
+        <a
+          className="pill nav-follow"
+          href={photographer.href}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Instagram
+        </a>
         <a
           className="pill nav-follow"
           href={facebookPage.href}

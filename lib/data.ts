@@ -16,9 +16,9 @@ export const photographer = {
 
 /** Family photo page for this site. */
 export const facebookPage = {
-  name: "Sporting Events",
-  href: "https://www.facebook.com/profile.php?id=61594789795122",
-  note: "Family photo page for this site.",
+  name: "True Family Photography",
+  href: "https://www.facebook.com/truefamilyphotography",
+  note: "The studio page.",
 };
 
 /** Spirit week through the Saturday dance, Pacific Time. */
@@ -801,9 +801,9 @@ export const social: SocialLink[] = [
   },
   {
     name: "Facebook",
-    handle: "Sporting Events",
-    href: "https://www.facebook.com/profile.php?id=61594789795122",
-    note: "Family photo page for this site.",
+    handle: "truefamilyphotography",
+    href: "https://www.facebook.com/truefamilyphotography",
+    note: "The studio page.",
   },
 ];
 

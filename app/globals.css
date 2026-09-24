@@ -118,6 +118,7 @@ button { cursor: pointer; }
   color: var(--ink);
   background: rgba(196, 165, 116, 0.28);
 }
+.nav-links .nav-social { display: none; }
 .nav-actions {
   display: flex;
   align-items: center;
@@ -1228,6 +1229,7 @@ label.field input, label.field select, label.field textarea {
     padding: 12px;
     border-bottom: 1px solid var(--line);
   }
+  .nav.open .nav-links .nav-social { display: block; }
   .section, .hero-content, .footer { padding-left: 20px; padding-right: 20px; }
   .hero.hero-lead .hero-content {
     padding: 28px 20px 48px;
