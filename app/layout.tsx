@@ -30,11 +30,11 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sporting Events · True Family Photography",
-    template: "%s · Sporting Events",
+    default: "Football Events · True Family Photography",
+    template: "%s · Football Events",
   },
   description:
-    "Sporting Events by @truefamilyphotography. Game photos, 1-1 shoots, and clean originals.",
+    "Football Events by @truefamilyphotography. Game photos, 1-1 shoots, and clean originals.",
   icons: { icon: "/brand/mark.svg" },
   referrer: "same-origin",
 };

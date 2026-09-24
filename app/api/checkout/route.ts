@@ -89,7 +89,7 @@ export async function POST(req: Request) {
         currency: "usd" as const,
         unit_amount: PHOTO_PRICE_CENTS,
         product_data: {
-          name: quote.ids.length === 1 ? "Sporting event photo" : `${quote.ids.length} sporting event photos`,
+          name: quote.ids.length === 1 ? "Football event photo" : `${quote.ids.length} football event photos`,
           description: "Clean original files. The site preview stays watermarked.",
           tax_code: PHOTO_TAX_CODE,
         },

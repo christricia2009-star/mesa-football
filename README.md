@@ -1,4 +1,4 @@
-# Sporting Events by @truefamilyphotography
+# Football Events by @truefamilyphotography
 
 Game-night photography. Families browse albums, search by jersey, and buy clean originals: $1 a photo, $10 a game, $20 for both games on the same night. Previews carry a light `@truefamilyphotography` credit. 1-1 shoots are $15.
 

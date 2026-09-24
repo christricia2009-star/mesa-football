@@ -24,7 +24,7 @@ export default function Nav({ onSearch }: { onSearch: () => void }) {
     <header className={open ? "nav open" : "nav"}>
       <Link href="/" className="nav-brand" onClick={() => setOpen(false)}>
         <span className="nav-brand-text">
-          <strong>SPORTING EVENTS</strong>
+          <strong>FOOTBALL EVENTS</strong>
           <span>@truefamilyphotography</span>
         </span>
       </Link>

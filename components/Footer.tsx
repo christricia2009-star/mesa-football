@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer-grid">
         <div>
           <h3 className="display md" style={{ margin: "0 0 8px" }}>
-            SPORTING
+            FOOTBALL
             <br />
             <span className="orange">EVENTS</span>
           </h3>
@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="legal">
-        <span>Sporting Events by {photographer.handle}</span>
+        <span>Football Events by {photographer.handle}</span>
         <span>Clean originals are $1, $10 a game, or $20 a night, with no watermark.</span>
       </div>
     </footer>

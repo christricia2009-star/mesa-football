@@ -24,7 +24,7 @@ export default function HomePage() {
         <div className="hero-content">
           <div className="kicker">Northern California · {photographer.handle}</div>
           <h1 className="display xl">
-            SPORTING
+            FOOTBALL
             <br />
             <span className="orange">EVENTS</span>
           </h1>
@@ -55,8 +55,8 @@ export default function HomePage() {
 
       <div className="marquee" aria-hidden>
         <span>
-          SPORTING EVENTS · {photographer.handle.toUpperCase()} · $1 A PHOTO · $10 A GAME · $20 A
-          NIGHT · 1-1 SHOOTS · SPORTING EVENTS · {photographer.handle.toUpperCase()} ·&nbsp;
+          FOOTBALL EVENTS · {photographer.handle.toUpperCase()} · $1 A PHOTO · $10 A GAME · $20 A
+          NIGHT · 1-1 SHOOTS · FOOTBALL EVENTS · {photographer.handle.toUpperCase()} ·&nbsp;
         </span>
       </div>
 
