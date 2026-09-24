@@ -29,7 +29,7 @@ export default function CommandPalette({
         { href: "/shoots", title: "1-1 Shoots", sub: "$15 to book · folder by QR" },
         { href: "/cart", title: "Cart", sub: "$1 each · $10 a game · $20 a night" },
         { href: "/poll", title: "Player of the Week", sub: "Vote · one account, one ballot" },
-        { href: "/players", title: "Roster", sub: "Get to know the Mavericks" },
+        { href: "/players", title: "Roster", sub: "The players" },
         { href: "/schedule", title: "Schedule", sub: "2026 Fridays" },
       ];
     }

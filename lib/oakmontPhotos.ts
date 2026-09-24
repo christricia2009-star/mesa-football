@@ -398,7 +398,7 @@ export const oakmontPhotos: Photo[] = [
     "src": "/gallery/jv-oakmont/IMG_6839.jpg",
     "filename": "IMG_6839.jpg",
     "originalName": "IMG_6839.JPG",
-    "caption": "JV Mavericks take the field vs Oakmont.",
+    "caption": "JV takes the field vs Oakmont.",
     "game": "jv-vs-oakmont",
     "area": "field",
     "level": "jv",

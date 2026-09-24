@@ -8,44 +8,17 @@ import type {
   TeamLevel,
 } from "./types";
 
-export const school = {
-  name: "Mesa Verde High School",
-  team: "Mavericks",
-  city: "Citrus Heights, California",
-  address: "7501 Carriage Drive, Citrus Heights, CA 95621",
-  phone: "(916) 971-5288",
-  colors: "Forest Green & Orange",
-  motto: "Once a Maverick, Always a Maverick",
-  hashtag: "#DontFlinch",
-  league: "Sierra Delta League",
-  section: "CIF Sac-Joaquin Section · Division VI",
-  stadium: "Maverick Stadium",
-  stadiumNote:
-    "The home field opened in October 2023 — the first stadium in school history after 48 years of borrowed Friday nights.",
-  principal: "Jennifer Petersen",
-  athleticDirector: "Travis Miller",
-  athleticDirectorEmail: "travis.miller@sanjuan.edu",
-  schoolUrl: "https://mesaverde.sanjuan.edu/",
-  ticketsUrl: "https://gofan.co/school/CA7982",
-  maxPrepsUrl:
-    "https://www.maxpreps.com/ca/citrus-heights/mesa-verde-mavericks/football/",
-  jvMaxPrepsUrl:
-    "https://www.maxpreps.com/ca/citrus-heights/mesa-verde-mavericks/football/jv/",
-  juniorMavsUrl: "https://www.juniormavs.org/",
-  season: "2026",
-};
-
 export const photographer = {
   name: "True Family Photography",
   handle: "@truefamilyphotography",
   href: "https://www.instagram.com/truefamilyphotography/",
 };
 
-/** Family page for this site. Not Mesa Verde High School athletics. */
+/** Family photo page for this site. */
 export const facebookPage = {
-  name: "MesaVerde Football Photos",
+  name: "Sporting Events",
   href: "https://www.facebook.com/profile.php?id=61594789795122",
-  note: "Family photo page for this site. Not the school program.",
+  note: "Family photo page for this site.",
 };
 
 /** Spirit week through the Saturday dance, Pacific Time. */
@@ -147,7 +120,7 @@ const varsityRoster: Omit<Player, "level">[] = [
     height: "6'1\"",
     weight: "170 lbs",
     blurb:
-      "Junior skill player who lives on the boundary — catching it or covering it. Length and speed in a Maverick uniform.",
+      "Junior skill player who lives on the boundary — catching it or covering it. Length and speed on the outside.",
   },
   {
     number: 9,
@@ -169,7 +142,7 @@ const varsityRoster: Omit<Player, "level">[] = [
     height: "5'11\"",
     weight: "180 lbs",
     blurb:
-      "Senior workhorse. Runs with a low pad level and turns around to play safety. Fourth-year Maverick energy.",
+      "Senior workhorse. Runs with a low pad level and turns around to play safety.",
   },
   {
     number: 11,
@@ -290,7 +263,7 @@ const varsityRoster: Omit<Player, "level">[] = [
     height: "6'2\"",
     weight: "270 lbs",
     blurb:
-      "Junior tackle with defensive-line size. 270 pounds of Maverick green anchoring the edge of the offensive line.",
+      "Junior tackle with defensive-line size. 270 pounds anchoring the edge of the offensive line.",
   },
   {
     number: 53,
@@ -312,7 +285,7 @@ const varsityRoster: Omit<Player, "level">[] = [
     height: "6'1\"",
     weight: "210 lbs",
     blurb:
-      "Senior lineman who can also rush from the edge. Fourth-year veteran of the green table.",
+      "Senior lineman who can also rush from the edge. Fourth-year veteran of the offensive line.",
   },
   {
     number: 63,
@@ -367,7 +340,7 @@ const varsityRoster: Omit<Player, "level">[] = [
     height: "6'6\"",
     weight: "250 lbs",
     blurb:
-      "Sophomore tackle with a 6'6\" frame you can see from the student section. Future of the Maverick offensive line.",
+      "Sophomore tackle with a 6'6\" frame you can see from the student section.",
   },
   {
     number: 77,
@@ -433,18 +406,18 @@ export const players: Player[] = [
 
 export const games: Game[] = [
   {
-    slug: "green-orange-scrimmage",
+    slug: "intra-squad-scrimmage",
     level: "varsity",
     date: "2026-08-15",
-    opponent: "Green vs Orange",
+    opponent: "Intra-squad",
     mascot: "Scrimmage",
     location: "home",
-    venue: "Maverick Stadium",
+    venue: "Home stadium",
     kickoff: "1:00 PM",
     league: false,
     photoNight: true,
     confirmed: true,
-    note: "Annual intra-squad scrimmage — new era of Maverick football.",
+    note: "Annual intra-squad scrimmage.",
     cover: "/gallery/tunnel-burst.jpg",
   },
   {
@@ -454,7 +427,7 @@ export const games: Game[] = [
     opponent: "Oakmont",
     mascot: "Vikings",
     location: "home",
-    venue: "Maverick Stadium",
+    venue: "Home stadium",
     kickoff: "5:00 PM",
     league: false,
     photoNight: true,
@@ -470,7 +443,7 @@ export const games: Game[] = [
     opponent: "St. Vincent",
     mascot: "Mustangs",
     location: "home",
-    venue: "Maverick Stadium",
+    venue: "Home stadium",
     kickoff: "7:00 PM",
     league: false,
     photoNight: true,
@@ -500,7 +473,7 @@ export const games: Game[] = [
     opponent: "Golden Sierra",
     mascot: "Grizzlies",
     location: "home",
-    venue: "Maverick Stadium",
+    venue: "Home stadium",
     kickoff: "5:00 PM",
     league: true,
     photoNight: true,
@@ -516,7 +489,7 @@ export const games: Game[] = [
     opponent: "Golden Sierra",
     mascot: "Grizzlies",
     location: "home",
-    venue: "Maverick Stadium",
+    venue: "Home stadium",
     kickoff: "7:15 PM",
     league: true,
     photoNight: true,
@@ -563,7 +536,7 @@ export const games: Game[] = [
     opponent: "Lindhurst",
     mascot: "Blazers",
     location: "home",
-    venue: "Maverick Stadium",
+    venue: "Home stadium",
     kickoff: "7:00 PM",
     league: true,
     photoNight: true,
@@ -579,7 +552,7 @@ export const games: Game[] = [
     opponent: "Woodland Christian",
     mascot: "Cardinals",
     location: "home",
-    venue: "Maverick Stadium",
+    venue: "Home stadium",
     kickoff: "7:00 PM",
     league: true,
     photoNight: true,
@@ -623,7 +596,7 @@ export const games: Game[] = [
     opponent: "Highlands",
     mascot: "Scots",
     location: "home",
-    venue: "Maverick Stadium",
+    venue: "Home stadium",
     kickoff: "7:00 PM",
     league: true,
     photoNight: true,
@@ -653,7 +626,7 @@ export const areas: Area[] = [
     name: "Sideline",
     short: "The bench",
     description:
-      "Headsets, chain gang, orange towels, and the next play. Tight portraits and celebration frames from field level.",
+      "Headsets, the chain gang, and the next play. Tight portraits and celebration frames from field level.",
     cover: "/gallery/thirteen.jpg",
   },
   {
@@ -661,7 +634,7 @@ export const areas: Area[] = [
     name: "End Zone",
     short: "Paydirt",
     description:
-      "The orange paint. Jump balls, goal-line stands, and the shot every family wants — a Maverick in the end zone.",
+      "Jump balls, goal-line stands, and the shot every family wants — a player in the end zone.",
     cover: "/gallery/huddle-actual.jpg",
   },
   {
@@ -669,7 +642,7 @@ export const areas: Area[] = [
     name: "Student Section",
     short: "The roar",
     description:
-      "Green and orange in the bleachers. Spirit, signs, and the noise that makes a new stadium feel like it has always been here.",
+      "Spirit, signs, and the noise from the bleachers.",
     cover: "/gallery/take-the-field.jpg",
   },
   {
@@ -677,7 +650,7 @@ export const areas: Area[] = [
     name: "Cheer",
     short: "Sideline energy",
     description:
-      "Maverick cheer on the track. Halftime, timeouts, and the tunnel when the team takes the field.",
+      "Cheer on the track. Halftime, timeouts, and the tunnel when the team takes the field.",
     cover: "/gallery/tunnel-burst.jpg",
   },
   {
@@ -685,7 +658,7 @@ export const areas: Area[] = [
     name: "Band",
     short: "World famous",
     description:
-      "The PA still calls them world famous. Pregame, halftime, and the fight song after every Maverick score.",
+      "Pregame, halftime, and the fight song after every score.",
     cover: "/gallery/take-the-field.jpg",
   },
   {
@@ -693,7 +666,7 @@ export const areas: Area[] = [
     name: "Tunnel",
     short: "Burst",
     description:
-      "The inflatable, the smoke, the longhorn. The first frame of every home Friday.",
+      "Smoke, the chute, and the first frame of every home Friday.",
     cover: "/gallery/tunnel-longhorn.jpg",
   },
   {
@@ -717,7 +690,7 @@ export const areas: Area[] = [
     name: "Field Level",
     short: "Between the hashes",
     description:
-      "Hash-mark football. Trenches, handoffs, and the walk-out in orange.",
+      "Hash-mark football. Trenches, handoffs, and the walk-out.",
     cover: "/gallery/take-the-field.jpg",
   },
   {
@@ -733,13 +706,13 @@ export const areas: Area[] = [
 export const fundraisers: Fundraiser[] = [
   {
     slug: "booster-club",
-    title: "Maverick Football Boosters",
+    title: "Game night boosters",
     status: "season",
     when: "All season",
     summary:
       "The parent engine behind Friday nights — film, meals, senior night, and the little things that make a program feel like a family.",
-    how: "Join at the next home game table or email the athletic office. Dues go straight back to the program.",
-    contact: "travis.miller@sanjuan.edu",
+    how: "Join at the next home game table, or email the studio. Dues go straight back to the night.",
+    contact: "admin@snapcollectibles.com",
   },
   {
     slug: "spirit-wear",
@@ -747,9 +720,9 @@ export const fundraisers: Fundraiser[] = [
     status: "open",
     when: "Every home Friday",
     summary:
-      "Hunter green hoodies, blaze orange tees, and the gear you actually want to wear to the grocery store on Saturday.",
+      "Hoodies, tees, and the gear you actually want to wear to the grocery store on Saturday.",
     how: "Cash, card, and Venmo at the plaza table.",
-    contact: "Concessions plaza · Maverick Stadium",
+    contact: "Concessions plaza · home stadium",
   },
   {
     slug: "concessions",
@@ -767,9 +740,9 @@ export const fundraisers: Fundraiser[] = [
     status: "open",
     when: "Close Friday, Sept 11",
     summary:
-      "Local businesses and family shout-outs in the printed home program. A full-page ‘Go Mavs’ is the best $100 you will spend this fall.",
-    how: "Send a logo or a senior message. We handle layout. Checks to MVHS Football Boosters.",
-    contact: "travis.miller@sanjuan.edu",
+      "Local businesses and family shout-outs in the printed home program. A full-page message is the best $100 you will spend this fall.",
+    how: "Send a logo or a senior message. We handle layout.",
+    contact: "admin@snapcollectibles.com",
   },
   {
     slug: "senior-banners",
@@ -779,7 +752,7 @@ export const fundraisers: Fundraiser[] = [
     summary:
       "Fence-line banners for the senior class — name, number, and a photo from this site, printed large enough for grandma to see from the top row.",
     how: "Buy the frame you want ($1), then send that file with the order.",
-    contact: "travis.miller@sanjuan.edu",
+    contact: "admin@snapcollectibles.com",
   },
   {
     slug: "fifty-fifty",
@@ -788,7 +761,7 @@ export const fundraisers: Fundraiser[] = [
     when: "Halftime, every home game",
     summary:
       "Tickets during the first half. Winner announced at the start of the third. Split with the program.",
-    how: "Buy tickets from the student section runners in orange.",
+    how: "Buy tickets from the student section runners.",
     contact: "Student section aisle",
   },
   {
@@ -807,48 +780,30 @@ export const fundraisers: Fundraiser[] = [
     status: "coming",
     when: "October · weight room",
     summary:
-      "Linemen win games. Sponsors pledge per rep. Helmets, sled, and the green table on full display.",
+      "Linemen win games. Sponsors pledge per rep. Helmets and the sled on full display.",
     how: "Sponsor a lineman by jersey number. Watch the live board on this site the day of.",
-    contact: "Coach Tujague · btujague@sanjuan.edu",
+    contact: "admin@snapcollectibles.com",
   },
 ];
 
 export const social: SocialLink[] = [
   {
     name: "Instagram",
-    handle: "@mesaverdeathletics",
-    href: "https://www.instagram.com/mesaverdeathletics/",
-    note: "Official athletics — we do not manage this account.",
+    handle: "@truefamilyphotography",
+    href: "https://www.instagram.com/truefamilyphotography/",
+    note: "The studio.",
   },
   {
-    name: "X / Twitter",
-    handle: "@mesaverdesports",
-    href: "https://x.com/mesaverdesports",
-    note: "School sports feed — we do not manage this account.",
+    name: "Studio site",
+    handle: "truefamilyphotography.com",
+    href: "https://www.truefamilyphotography.com/",
+    note: "True Family Photography.",
   },
   {
-    name: "Instagram (ASB)",
-    handle: "@mvhsconnect",
-    href: "https://www.instagram.com/mvhsconnect/",
-    note: "Student government — we do not manage this account.",
-  },
-  {
-    name: "School site",
-    handle: "mesaverde.sanjuan.edu",
-    href: "https://mesaverde.sanjuan.edu/",
-    note: "San Juan Unified official campus site.",
-  },
-  {
-    name: "Tickets",
-    handle: "GoFan",
-    href: "https://gofan.co/school/CA7982",
-    note: "Digital tickets for home (and most away) games.",
-  },
-  {
-    name: "Junior Mavs",
-    handle: "juniormavs.org",
-    href: "https://www.juniormavs.org/",
-    note: "Youth football & cheer feeder program.",
+    name: "Facebook",
+    handle: "Sporting Events",
+    href: "https://www.facebook.com/profile.php?id=61594789795122",
+    note: "Family photo page for this site.",
   },
 ];
 
@@ -882,7 +837,7 @@ export function nextHomeGame(from = new Date()) {
   start.setHours(0, 0, 0, 0);
   return games.find((g) => {
     if (g.location !== "home" || !g.photoNight) return false;
-    if (g.slug === "bye-week" || g.slug === "green-orange-scrimmage") return false;
+    if (g.slug === "bye-week" || g.slug === "intra-squad-scrimmage") return false;
     const d = new Date(g.date + "T19:00:00");
     return d >= start && !g.result;
   });

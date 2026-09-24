@@ -1,8 +1,8 @@
-# Mesa Verde Mavericks — Photos
+# Sporting Events by @truefamilyphotography
 
-Home-game photography site for **Mesa Verde High School football** in Citrus Heights, California. Families browse albums, search by jersey, and download **original-resolution** files. A small `@truefamilyphotography` credit sits on each frame. Downloads stay clean. No paywall.
+Game-night photography. Families browse albums, search by jersey, and buy clean originals: $1 a photo, $10 a game, $20 for both games on the same night. Previews carry a light `@truefamilyphotography` credit. 1-1 shoots are $15.
 
-Forest green & orange. New stadium, 2023. Motto: *Once a Maverick, Always a Maverick.*
+Ivory, ink, and gold — the same palette as [truefamilyphotography.com](https://www.truefamilyphotography.com/).
 
 ## Run it
 
@@ -16,16 +16,16 @@ Open [http://localhost:3000](http://localhost:3000).
 ## What’s on the site
 
 - **Photos** — searchable masonry of every frame
+- **1-1 shoots** — folders with a QR code, plus a $15 booking
 - **Game albums** — one gallery per Friday
-- **Roster** — 2026 MaxPreps varsity board, get-to-know blurbs, tagged photos
-- **Schedule** — 2026 slate (confirmed Armijo / Golden Sierra / opener; remaining Sierra Delta nights marked TBA)
-- **Fundraisers** — boosters, spirit wear, concessions, program ads, senior banners, 50/50, team dinners, lift-a-thon
-- **Social** — Instagram, Facebook, X links we **do not** manage
+- **Roster** — varsity and JV boards, get-to-know blurbs, tagged photos
+- **Schedule** — 2026 slate
+- **Fundraisers** — game-night meals, spirit wear, concessions, program ads, senior banners, 50/50, team dinners, lift-a-thon
 
-Search is also `⌘K` / `Ctrl+K`. Families hit **Download original** in the lightbox.
+Search is also `⌘K` / `Ctrl+K`.
 
 ## Notes
 
-This is an independent parent photography site, not an official San Juan Unified page. Roster, staff, and confirmed dates are sourced from public MaxPreps / school pages. Remaining league Fridays are placeholders so families can plan — update `lib/data.ts` when the card is final.
+Roster, staff, and confirmed dates started from public listings. Remaining league Fridays are placeholders — update `lib/data.ts` when the card is final.
 
 Player cards use jersey numbers, not portraits of students.

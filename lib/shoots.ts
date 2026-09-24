@@ -17,8 +17,8 @@ export type ShootFolder = {
 
 export const shootFolders: ShootFolder[] = [
   {
-    code: "sample-maverick",
-    title: "Maverick portrait",
+    code: "sample-sideline",
+    title: "Sideline portrait",
     subject: "Sample folder",
     when: "Sample",
     sample: true,

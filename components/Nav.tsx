@@ -24,10 +24,9 @@ export default function Nav({ onSearch }: { onSearch: () => void }) {
   return (
     <header className={open ? "nav open" : "nav"}>
       <Link href="/" className="nav-brand" onClick={() => setOpen(false)}>
-        <img src="/brand/maverick-crest.jpg" alt="Mesa Verde Mavericks crest" />
         <span className="nav-brand-text">
-          <strong>MESA VERDE</strong>
-          <span>Mavericks Football</span>
+          <strong>SPORTING EVENTS</strong>
+          <span>@truefamilyphotography</span>
         </span>
       </Link>
       <nav className="nav-links">
@@ -56,6 +55,9 @@ export default function Nav({ onSearch }: { onSearch: () => void }) {
         </a>
         <button className="pill nav-search" onClick={onSearch} aria-label="Search" title="Search (⌘K)">
           Search
+        </button>
+        <button className="icon-btn nav-search-icon" onClick={onSearch} aria-label="Search" title="Search (⌘K)">
+          ⌕
         </button>
         <button
           className="icon-btn nav-toggle"

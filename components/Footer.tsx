@@ -1,36 +1,22 @@
 import Link from "next/link";
-import { facebookPage, photographer, school, social } from "@/lib/data";
+import { facebookPage, photographer } from "@/lib/data";
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-grid">
         <div>
-          <img
-            src="/brand/maverick-crest.jpg"
-            alt=""
-            width={72}
-            height={72}
-            style={{ borderRadius: "50%", border: "2px solid var(--orange-500)", objectFit: "cover" }}
-          />
-          <h3 className="display md" style={{ margin: "16px 0 8px" }}>
-            MESA VERDE
+          <h3 className="display md" style={{ margin: "0 0 8px" }}>
+            SPORTING
             <br />
-            <span className="orange">MAVERICKS</span>
+            <span className="orange">EVENTS</span>
           </h3>
-          <p style={{ color: "var(--muted)", maxWidth: 360 }}>
-            {school.stadium}, {school.city}. Home game photography for families.
-            Previews are marked. Clean originals are $1 each, $10 for one game, or $20 for the whole night.
+          <p className="brand-script" style={{ color: "var(--ink)", marginTop: 0 }}>
+            by {photographer.handle}
           </p>
           <p style={{ color: "var(--muted)", maxWidth: 360 }}>
-            Frames by{" "}
-            <a href={photographer.href} target="_blank" rel="noreferrer">
-              {photographer.handle}
-            </a>
-            .
-          </p>
-          <p style={{ color: "var(--orange-400)", letterSpacing: "0.12em", fontSize: 13 }}>
-            {school.motto}
+            Game nights and 1-1 sessions. Previews are marked. Clean originals are $1 each,
+            $10 for one game, or $20 for the whole night.
           </p>
         </div>
         <div>
@@ -38,58 +24,27 @@ export default function Footer() {
           <Link href="/photos">Photos</Link>
           <Link href="/shoots">1-1 shoots</Link>
           <Link href="/games">Game albums</Link>
-          <Link href="/players">Get to know the roster</Link>
+          <Link href="/players">Roster</Link>
           <Link href="/poll">Player of the Week</Link>
-          <Link href="/schedule">2026 schedule</Link>
+          <Link href="/schedule">Schedule</Link>
           <Link href="/fundraisers">Fundraisers</Link>
         </div>
         <div>
-          <h4>Follow the photos</h4>
+          <h4>The studio</h4>
+          <a href="https://www.truefamilyphotography.com/" target="_blank" rel="noreferrer">
+            truefamilyphotography.com
+          </a>
+          <a href={photographer.href} target="_blank" rel="noreferrer">
+            Instagram · {photographer.handle}
+          </a>
           <a href={facebookPage.href} target="_blank" rel="noreferrer">
-            Facebook · {facebookPage.name}
-          </a>
-          <p style={{ color: "var(--muted)", margin: "8px 0 0" }}>{facebookPage.note}</p>
-        </div>
-        <div>
-          <h4>We don’t manage these</h4>
-          {social.map((s) => (
-            <a key={s.href} href={s.href} target="_blank" rel="noreferrer">
-              {s.name} · {s.handle}
-            </a>
-          ))}
-        </div>
-        <div>
-          <h4>Campus</h4>
-          <p style={{ color: "var(--muted)", margin: 0 }}>
-            {school.address}
-            <br />
-            {school.phone}
-            <br />
-            AD {school.athleticDirector}
-          </p>
-          <a href={school.ticketsUrl} target="_blank" rel="noreferrer">
-            Buy tickets on GoFan
-          </a>
-          <a href={school.schoolUrl} target="_blank" rel="noreferrer">
-            School website
-          </a>
-          <a href={school.juniorMavsUrl} target="_blank" rel="noreferrer">
-            Junior Mavericks
+            Facebook
           </a>
         </div>
       </div>
       <div className="legal">
-        <span>
-          Independent parent photography site · not an official San Juan Unified page ·{" "}
-          {school.hashtag}
-        </span>
-        <span>
-          Frames by{" "}
-          <a href={photographer.href} target="_blank" rel="noreferrer">
-            {photographer.handle}
-          </a>
-          . Clean originals are $1, $10 a game, or $20 a night, with no watermark.
-        </span>
+        <span>Sporting Events by {photographer.handle}</span>
+        <span>Clean originals are $1, $10 a game, or $20 a night, with no watermark.</span>
       </div>
     </footer>
   );

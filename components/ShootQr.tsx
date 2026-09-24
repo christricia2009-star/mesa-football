@@ -5,7 +5,7 @@ export default async function ShootQr({ url, label }: { url: string; label: stri
     type: "svg",
     margin: 1,
     width: 168,
-    color: { dark: "#04140e", light: "#f3ead8" },
+    color: { dark: "#1f1814", light: "#fbf6ee" },
   });
   return (
     <figure className="shoot-qr">

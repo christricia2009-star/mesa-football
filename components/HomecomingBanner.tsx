@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { homecomingLive, school } from "@/lib/data";
+import { homecomingLive } from "@/lib/data";
 
 export default function HomecomingBanner() {
   if (!homecomingLive()) return null;
@@ -10,9 +10,10 @@ export default function HomecomingBanner() {
         <div className="kicker">Spirit week · live now</div>
         <h2 className="display hc-title">
           HOMECOMING
-          <span className="orange"> WEEK</span>
+          <br />
+          <span className="orange">WEEK</span>
         </h2>
-        <p>Wear the green. Wear the orange. {school.hashtag}</p>
+        <p>Rally, the game, and the dance.</p>
       </div>
       <ul className="hc-events">
         <li>
@@ -21,7 +22,7 @@ export default function HomecomingBanner() {
         </li>
         <li>
           <strong>Friday · The game</strong>
-          vs Lindhurst · 7:00 PM · Maverick Stadium
+          vs Lindhurst · 7:00 PM · home field
         </li>
         <li>
           <strong>Saturday · The dance</strong>

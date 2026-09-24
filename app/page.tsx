@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatGameDate, games, homecomingLive, levelLabel, nextHomeGame, school } from "@/lib/data";
+import { formatGameDate, games, levelLabel, nextHomeGame, photographer } from "@/lib/data";
 import GuardedImage from "@/components/GuardedImage";
 import HomeFilm from "@/components/HomeFilm";
 import PhotoCredit from "@/components/PhotoCredit";
@@ -15,21 +15,20 @@ export default function HomePage() {
       <section className="hero hero-lead">
         <div className="hero-media">
           <GuardedImage
-            src="/gallery/tunnel-longhorn-hero.jpg"
-            alt="Green and orange Mavericks inflatable tunnel on the field, WELCOME TO THE CHUTE across the bleachers"
+            src="/gallery/kickoff.jpg"
+            alt="Kickoff on a Friday night"
           />
         </div>
         <div className="hero-shade" />
         <PhotoCredit />
         <div className="hero-content">
-          <div className="kicker">
-            {school.city} · {school.league} · {school.season}
-          </div>
+          <div className="kicker">Northern California · {photographer.handle}</div>
           <h1 className="display xl">
-            MESA VERDE
+            SPORTING
             <br />
-            <span className="orange">MAVERICKS</span>
+            <span className="orange">EVENTS</span>
           </h1>
+          <p className="brand-script">by {photographer.handle}</p>
           <div className="hero-row">
             <Link href="/photos" className="pill orange">
               View photos
@@ -51,34 +50,30 @@ export default function HomePage() {
             )}
           </div>
         </div>
-        <div className="lead-credit">Lead frame · the tunnel</div>
+        <div className="lead-credit">Lead frame · kickoff</div>
       </section>
 
       <div className="marquee" aria-hidden>
         <span>
-          {school.motto} · {homecomingLive() ? "HOMECOMING WEEK · " : ""}
-          FOREST GREEN & ORANGE · {school.stadium.toUpperCase()} · {school.hashtag} ·{" "}
-          {homecomingLive() ? "RALLY FRIDAY · DANCE SATURDAY · " : ""}
-          ONCE A MAVERICK ALWAYS A MAVERICK · {school.motto} ·{" "}
-          {homecomingLive() ? "HOMECOMING WEEK · " : ""}
-          FOREST GREEN & ORANGE · {school.hashtag} ·&nbsp;
+          SPORTING EVENTS · {photographer.handle.toUpperCase()} · $1 A PHOTO · $10 A GAME · $20 A
+          NIGHT · 1-1 SHOOTS · SPORTING EVENTS · {photographer.handle.toUpperCase()} ·&nbsp;
         </span>
       </div>
 
       <section className="section">
         <div className="section-head">
           <div>
-            <div className="kicker">The house</div>
+            <div className="kicker">From the sideline</div>
             <h2 className="display lg">
-              A STADIUM THAT
+              FRIDAY NIGHT
               <br />
-              <span className="orange">FINALLY CAME HOME</span>
+              <span className="orange">FRAMES</span>
             </h2>
             <hr className="rule" />
           </div>
           <p>
-            {school.stadiumNote} Green bleachers. Orange track. LED lights. This
-            site is the family archive of what happens under them.
+            Search a jersey, buy a game, or book a 1-1. Previews carry a light credit.
+            The file you pay for is clean.
           </p>
         </div>
         <HomeFilm />

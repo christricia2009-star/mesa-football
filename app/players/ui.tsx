@@ -32,14 +32,13 @@ export default function RosterBoard() {
     <main className="section">
       <div className="section-head">
         <div>
-          <div className="kicker">Get to know your Mavericks</div>
+          <div className="kicker">The roster</div>
           <h1 className="display lg">
             THE <span className="orange">ROSTER</span>
           </h1>
           <hr className="rule" />
           <p>
-            Varsity and JV are separate boards from MaxPreps. Click a jersey to
-            see every tagged frame for that level.
+            Varsity and JV are separate boards. Click a jersey to see every tagged frame for that level.
           </p>
         </div>
       </div>

@@ -310,7 +310,7 @@ function BoardSection({
                     disabled={locked}
                     onClick={() => onVote(c.level, c.number)}
                   >
-                    {selected ? "Your vote" : "This is my Maverick"}
+                    {selected ? "Your vote" : "This is my pick"}
                   </button>
                 )}
               </div>

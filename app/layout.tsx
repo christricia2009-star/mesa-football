@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Fraunces, IBM_Plex_Mono, Outfit } from "next/font/google";
+import { Cormorant_Garamond, Fraunces, Great_Vibes, IBM_Plex_Mono, Outfit } from "next/font/google";
 import Footer from "@/components/Footer";
 import HomecomingBanner from "@/components/HomecomingBanner";
 import Shell from "@/components/Shell";
 import "./globals.css";
 
-const display = Bebas_Neue({
-  weight: "400",
+const display = Cormorant_Garamond({
+  weight: ["500", "600"],
   subsets: ["latin"],
   variable: "--font-display",
+});
+const script = Great_Vibes({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-script",
 });
 const body = Outfit({
   subsets: ["latin"],
@@ -26,23 +31,23 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Mesa Verde Mavericks · Photos",
-    template: "%s · Mesa Verde Mavericks",
+    default: "Sporting Events · True Family Photography",
+    template: "%s · Sporting Events",
   },
   description:
-    "Home-game photography for Mesa Verde Mavericks football in Citrus Heights. Albums, roster, schedule, and $1 original downloads.",
-  icons: { icon: "/brand/maverick-crest.jpg" },
+    "Sporting Events by @truefamilyphotography. Game photos, 1-1 shoots, and clean originals.",
+  icons: { icon: "/brand/mark.svg" },
   referrer: "same-origin",
 };
 
 export const viewport = {
-  themeColor: "#04140e",
+  themeColor: "#f4ede3",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${display.variable} ${body.variable} ${serif.variable} ${mono.variable}`}>
+      <body className={`${display.variable} ${script.variable} ${body.variable} ${serif.variable} ${mono.variable}`}>
         <Shell>
           <HomecomingBanner />
           {children}

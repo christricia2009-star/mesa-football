@@ -1,6 +1,6 @@
 import GuardedImage from "@/components/GuardedImage";
 import PhotoCredit from "@/components/PhotoCredit";
-import { facebookPage, fundraisers, school, social } from "@/lib/data";
+import { facebookPage, fundraisers, photographer } from "@/lib/data";
 import { thumbSrc } from "@/lib/utils";
 
 export const metadata = { title: "Fundraisers" };
@@ -10,7 +10,7 @@ export default function FundraisersPage() {
     <main>
       <section className="hero" style={{ minHeight: "46vh" }}>
         <div className="hero-media">
-          <GuardedImage src={thumbSrc("/gallery/take-the-field.jpg")} alt="Mavericks taking the field" />
+          <GuardedImage src={thumbSrc("/gallery/take-the-field.jpg")} alt="Team taking the field" />
         </div>
         <div className="hero-shade" />
         <PhotoCredit />
@@ -22,8 +22,8 @@ export default function FundraisersPage() {
             <span className="orange">DOESN’T RUN ITSELF</span>
           </h1>
           <p className="lede">
-            Meals, banners, the snack bar, the photos. Every dollar stays in Citrus
-            Heights. This page is the booster board — not a payment processor.
+            Meals, banners, and the snack bar. Photo sales on this site are separate:
+            $1 a frame, $10 a game, $20 a night.
           </p>
         </div>
       </section>
@@ -43,29 +43,17 @@ export default function FundraisersPage() {
         </div>
         <div className="raise-card" style={{ marginTop: 16 }}>
           <div className="status">Elsewhere</div>
-          <h3>THE ACCOUNTS WE DON’T RUN</h3>
+          <h3>THE STUDIO</h3>
           <p>
-            This site’s own page is{" "}
+            Questions about photos go to{" "}
+            <a href={photographer.href} target="_blank" rel="noreferrer" style={{ color: "var(--orange-400)" }}>
+              {photographer.handle}
+            </a>{" "}
+            or{" "}
             <a href={facebookPage.href} target="_blank" rel="noreferrer" style={{ color: "var(--orange-400)" }}>
-              {facebookPage.name} on Facebook
+              Facebook
             </a>
-            . It is a family photo follow, not the school program. School athletics
-            still lives on the accounts below. We do not post there, and this site
-            is not an official district page.
-          </p>
-          <p>
-            {social.map((s) => (
-              <span key={s.href}>
-                <a href={s.href} target="_blank" rel="noreferrer" style={{ color: "var(--orange-400)" }}>
-                  {s.name} {s.handle}
-                </a>
-                {" · "}
-              </span>
-            ))}
-          </p>
-          <p style={{ color: "var(--muted)" }}>
-            Questions for the athletic office: {school.athleticDirector} ·{" "}
-            {school.athleticDirectorEmail} · {school.phone}
+            .
           </p>
         </div>
       </section>
