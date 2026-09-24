@@ -92,29 +92,5 @@ export const seedPhotos: Photo[] = [
   ...jvHighlandsPhotos,
 ];
 
-/** Bare jersey search like `5` or `#5` — not a substring of 15 / 25 / 35. */
-export function jerseyQuery(q: string): number | null {
-  const raw = q.trim().replace(/^#/, "");
-  if (!/^\d{1,2}$/.test(raw)) return null;
-  const n = Number(raw);
-  if (!Number.isInteger(n) || n < 0 || n > 99) return null;
-  return n;
-}
-
-export function searchPhotos(photos: Photo[], q: string) {
-  const query = q.trim().toLowerCase();
-  if (!query) return photos;
-  const jersey = jerseyQuery(query);
-  if (jersey !== null) {
-    return photos.filter((p) => p.players.includes(jersey));
-  }
-  return photos.filter((p) => {
-    if (p.caption.toLowerCase().includes(query)) return true;
-    if (p.area.replace("-", " ").includes(query)) return true;
-    if (p.game.replace(/-/g, " ").includes(query)) return true;
-    if (query === "jv" && p.level === "jv") return true;
-    if ((query === "varsity" || query === "var") && p.level === "varsity") return true;
-    if (p.filename.toLowerCase().includes(query)) return true;
-    return false;
-  });
-}
+export { jerseyQuery, searchPhotoGroups, searchPhotos } from "./photo-search";
+export type { PhotoSearchGroup } from "./photo-search";

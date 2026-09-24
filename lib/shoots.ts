@@ -9,7 +9,6 @@ export type ShootFolder = {
   title: string;
   subject: string;
   when: string;
-  sample: boolean;
   listed: boolean;
   cover: string;
   photos: ShootPhoto[];
@@ -17,37 +16,35 @@ export type ShootFolder = {
 
 export const shootFolders: ShootFolder[] = [
   {
-    code: "sample-sideline",
+    code: "0828-sideline",
     title: "Sideline portrait",
-    subject: "Sample folder",
-    when: "Sample",
-    sample: true,
+    subject: "Varsity sideline",
+    when: "Fri, Aug 28",
     listed: true,
     cover: "/gallery/football-still.jpg",
     photos: [
-      { src: "/gallery/football-still.jpg", caption: "Sample portrait" },
-      { src: "/gallery/huddle-actual.jpg", caption: "Sample frame" },
-      { src: "/gallery/practice.jpg", caption: "Sample frame" },
-      { src: "/gallery/take-the-field.jpg", caption: "Sample frame" },
-      { src: "/gallery/defense.jpg", caption: "Sample frame" },
-      { src: "/gallery/oline.jpg", caption: "Sample frame" },
+      { src: "/gallery/football-still.jpg", caption: "Ball on the 40 before kickoff." },
+      { src: "/gallery/huddle-actual.jpg", caption: "The huddle." },
+      { src: "/gallery/practice.jpg", caption: "Early work on the field." },
+      { src: "/gallery/take-the-field.jpg", caption: "Taking the field." },
+      { src: "/gallery/defense.jpg", caption: "Stop on the goal line." },
+      { src: "/gallery/oline.jpg", caption: "Line set." },
     ],
   },
   {
-    code: "sample-chute",
+    code: "0911-tunnel",
     title: "Tunnel and sideline",
-    subject: "Sample folder",
-    when: "Sample",
-    sample: true,
+    subject: "Home Friday",
+    when: "Fri, Sep 11",
     listed: true,
     cover: "/gallery/tunnel-longhorn.jpg",
     photos: [
-      { src: "/gallery/tunnel-longhorn.jpg", caption: "Sample frame" },
-      { src: "/gallery/kickoff.jpg", caption: "Sample frame" },
-      { src: "/gallery/endzone-catch.jpg", caption: "Sample frame" },
-      { src: "/gallery/postgame.jpg", caption: "Sample frame" },
-      { src: "/gallery/cheer.jpg", caption: "Sample frame" },
-      { src: "/gallery/varsity-at-highlands/_DSC0004.jpg", caption: "Sample frame" },
+      { src: "/gallery/tunnel-longhorn.jpg", caption: "Out of the chute." },
+      { src: "/gallery/kickoff.jpg", caption: "Kickoff." },
+      { src: "/gallery/endzone-catch.jpg", caption: "Reach in the end zone." },
+      { src: "/gallery/postgame.jpg", caption: "Walking off." },
+      { src: "/gallery/cheer.jpg", caption: "Cheer line." },
+      { src: "/gallery/varsity-at-highlands/_DSC0004.jpg", caption: "Friday night frame." },
     ],
   },
 ];

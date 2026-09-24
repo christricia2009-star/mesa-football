@@ -25,10 +25,10 @@ export default function GamesBoard() {
           JV
         </button>
       </div>
-      <div className="filmstrip" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+      <div className="album-grid">
         {list.map((g) => (
           <Link key={g.slug} href={`/games/${g.slug}`}>
-            <figure className="shot" style={{ minHeight: 280 }}>
+            <figure className="shot">
               <GuardedImage src={thumbSrc(g.cover)} alt="" />
               <PhotoCredit link={false} />
               <span className="tag">{levelLabel(g.level)}</span>

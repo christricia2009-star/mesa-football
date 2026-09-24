@@ -2,8 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { games, levelLabel, playerHref, players } from "@/lib/data";
-import { jerseyQuery } from "@/lib/photos";
+import { levelLabel, playerHref } from "@/lib/data";
+import { parsePhotoQuery, searchPhotos } from "@/lib/photo-search";
 import { usePhotos } from "./PhotoProvider";
 
 type Hit = { href: string; title: string; sub: string };
@@ -33,54 +33,72 @@ export default function CommandPalette({
         { href: "/schedule", title: "Schedule", sub: "2026 Fridays" },
       ];
     }
-    const jersey = jerseyQuery(query);
-    if (jersey !== null) {
-      players
-        .filter((p) => p.number === jersey)
-        .forEach((p) => {
-          out.push({
-            href: playerHref(p),
-            title: `${levelLabel(p.level)} #${p.number} ${p.first} ${p.last}`,
-            sub: p.positions.join(" / ") || levelLabel(p.level),
-          });
-        });
-      const tagged = photos.filter((p) => p.players.includes(jersey)).length;
-      if (tagged) {
-        out.push({
-          href: `/photos?jersey=${jersey}`,
-          title: `${tagged} frame${tagged === 1 ? "" : "s"} tagged #${jersey}`,
-          sub: "Photos · exact jersey",
-        });
-      }
-      return out.slice(0, 12);
-    }
-    players.forEach((p) => {
-      const name = `${p.first} ${p.last}`.toLowerCase();
-      if (name.includes(query)) {
+    const parsed = parsePhotoQuery(query);
+    if (!parsed.reject) {
+      for (const p of parsed.players) {
         out.push({
           href: playerHref(p),
           title: `${levelLabel(p.level)} #${p.number} ${p.first} ${p.last}`,
-          sub: p.positions.join(" / ") || levelLabel(p.level),
+          sub: p.positions.join(" / ") || "Roster",
         });
+        const frames = searchPhotos(photos, `${p.level} #${p.number}`).length;
+        if (frames) {
+          out.push({
+            href: `/photos?q=${encodeURIComponent(`${p.level} #${p.number}`)}`,
+            title: `${frames} frame${frames === 1 ? "" : "s"}`,
+            sub: `Photos · ${levelLabel(p.level)} #${p.number} ${p.first} ${p.last}`,
+          });
+        }
       }
-    });
-    games.forEach((g) => {
-      if (g.opponent.toLowerCase().includes(query) || g.slug.includes(query)) {
+      for (const g of parsed.games) {
+        const where = g.location === "home" ? "vs" : "@";
         out.push({
           href: `/games/${g.slug}`,
-          title: `${levelLabel(g.level)} ${g.location === "home" ? "vs" : "@"} ${g.opponent}`,
+          title: `${levelLabel(g.level)} ${where} ${g.opponent}`,
           sub: g.date,
         });
+        const qGame = g.slug.replace(/-/g, " ");
+        const frames = searchPhotos(photos, qGame).length;
+        if (frames) {
+          out.push({
+            href: `/photos?q=${encodeURIComponent(qGame)}`,
+            title: `${frames} frame${frames === 1 ? "" : "s"}`,
+            sub: `Photos · ${levelLabel(g.level)} ${where} ${g.opponent}`,
+          });
+        }
       }
-    });
-    if (query === "poll" || query === "vote" || query === "potw" || query.includes("player of the week")) {
+      if (!parsed.players.length && !parsed.games.length) {
+        const frames = searchPhotos(photos, query).length;
+        if (frames) {
+          const who =
+            parsed.level ? levelLabel(parsed.level) : parsed.areas[0]?.name || parsed.filename || "Photos";
+          out.push({
+            href: `/photos?q=${encodeURIComponent(query)}`,
+            title: `${frames} frame${frames === 1 ? "" : "s"}`,
+            sub: `Photos · ${who}`,
+          });
+        }
+      }
+    }
+    const words = new Set(query.split(/[^a-z0-9]+/).filter(Boolean));
+    const nav: Hit[] = [
+      { href: "/photos", title: "Photos", sub: "All frames", keys: ["photo", "photos", "gallery"] },
+      { href: "/shoots", title: "1-1 Shoots", sub: "$15 to book · folder by QR", keys: ["shoot", "shoots"] },
+      { href: "/cart", title: "Cart", sub: "$1 each · $10 a game · $20 a night", keys: ["cart", "checkout"] },
+      { href: "/poll", title: "Player of the Week", sub: "Vote", keys: ["poll", "vote", "potw"] },
+      { href: "/players", title: "Roster", sub: "The players", keys: ["roster", "players"] },
+      { href: "/schedule", title: "Schedule", sub: "2026 Fridays", keys: ["schedule"] },
+      { href: "/games", title: "Albums", sub: "Game nights", keys: ["albums", "album", "games"] },
+    ].flatMap(({ keys, ...hit }) => (keys.some((k) => words.has(k)) ? [hit] : []));
+    if (query === "1-1" || query === "1 1") {
+      nav.unshift({ href: "/shoots", title: "1-1 Shoots", sub: "$15 to book · folder by QR" });
+    }
+    for (const hit of nav) {
+      if (!out.some((h) => h.href === hit.href && h.title === hit.title)) out.push(hit);
+    }
+    if (query.includes("player of the week") && !out.some((h) => h.href === "/poll")) {
       out.push({ href: "/poll", title: "Player of the Week", sub: "Vote" });
     }
-    photos.forEach((p) => {
-      if (p.caption.toLowerCase().includes(query)) {
-        out.push({ href: `/photos`, title: p.caption, sub: p.filename });
-      }
-    });
     return out.slice(0, 12);
   }, [q, photos]);
 

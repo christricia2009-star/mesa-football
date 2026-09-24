@@ -72,8 +72,8 @@ export default function HomePage() {
             <hr className="rule" />
           </div>
           <p>
-            Search a jersey, buy a game, or book a 1-1. Previews carry a light credit.
-            The file you pay for is clean.
+            Buy one photo at a time, or the entire game for $10. Previews have a
+            watermark. Downloads will be clean.
           </p>
         </div>
         <HomeFilm />

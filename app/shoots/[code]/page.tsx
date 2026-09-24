@@ -27,17 +27,14 @@ export default function ShootFolderPage({ params }: { params: { code: string } }
       </p>
       <div className="shoot-folder-head">
         <div>
-          <h1 className="display lg">
-            {folder.sample ? "SAMPLE · " : ""}
-            {folder.title}
-          </h1>
+          <h1 className="display lg">{folder.title}</h1>
           <hr className="rule" />
           <p className="cart-note">
             {folder.subject} · {folder.when} · {folder.photos.length} frames. This link is the
             folder. The QR opens the same page.
           </p>
         </div>
-        <ShootQr url={url} label={folder.code} />
+        <ShootQr url={url} label={folder.when} />
       </div>
       <ShootGallery photos={folder.photos} />
     </main>

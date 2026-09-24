@@ -1,11 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import PackOffers from "@/components/PackOffers";
 import PhotoGrid from "@/components/PhotoGrid";
 import { usePhotos } from "@/components/PhotoProvider";
 import { games, levelLabel } from "@/lib/data";
-import { searchPhotos } from "@/lib/photos";
+import { searchPhotoGroups } from "@/lib/photo-search";
 import type { TeamLevel } from "@/lib/types";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -24,6 +24,10 @@ export default function GalleryClient({
   const [level, setLevel] = useState<"all" | TeamLevel>("all");
   const [game, setGame] = useState("all");
   const [favOnly, setFavOnly] = useState(false);
+
+  useEffect(() => {
+    setQ(initialQuery);
+  }, [initialQuery]);
 
   const levelGames = useMemo(
     () =>
@@ -45,13 +49,14 @@ export default function GalleryClient({
     return repeated;
   }, [levelGames]);
 
-  const filtered = useMemo(() => {
-    let list = searchPhotos(photos, q);
+  const groups = useMemo(() => {
+    let list = photos;
     if (level !== "all") list = list.filter((p) => p.level === level);
     if (game !== "all") list = list.filter((p) => p.game === game);
     if (favOnly) list = list.filter((p) => favorites.includes(p.id));
-    return list;
+    return searchPhotoGroups(list, q);
   }, [photos, q, level, game, favOnly, favorites]);
+  const shown = groups.reduce((n, g) => n + g.photos.length, 0);
 
   return (
     <main className="section">
@@ -68,7 +73,7 @@ export default function GalleryClient({
           </p>
         </div>
         <div style={{ color: "var(--muted)", fontFamily: "var(--font-mono)", fontSize: 13 }}>
-          {filtered.length} / {photos.length} frames
+          {shown} / {photos.length} frames
         </div>
       </div>
 
@@ -79,8 +84,17 @@ export default function GalleryClient({
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Search #3, Martens, Golden Sierra, JV…"
+          aria-label="Search photos"
         />
       </div>
+      {q && groups.length === 1 && groups[0].label && (
+        <p className="search-note">
+          {groups[0].photos.length} frames · {groups[0].label}
+        </p>
+      )}
+      {q && groups.length === 0 && (
+        <p className="search-note">No frames match that search.</p>
+      )}
 
       <div className="filters">
         <button
@@ -132,7 +146,16 @@ export default function GalleryClient({
         </button>
       </div>
 
-      <PhotoGrid photos={filtered} />
+      {groups.map((g) => (
+        <section key={g.key}>
+          {groups.length > 1 && g.label && (
+            <h2 className="search-group">
+              {g.label} · {g.photos.length}
+            </h2>
+          )}
+          <PhotoGrid photos={g.photos} />
+        </section>
+      ))}
     </main>
   );
 }

@@ -39,11 +39,10 @@ export default function ShootsPage() {
 
       <div className="section-head" style={{ marginTop: 48 }}>
         <div>
-          <div className="kicker">Folders</div>
-          <h2 className="display md">SAMPLE SETS</h2>
+          <div className="kicker">This season</div>
+          <h2 className="display md">SHOOT FOLDERS</h2>
           <p className="cart-note">
-            These two are placeholders so the page has a shape. Real shoots replace them, each with
-            its own code.
+            Open a folder or scan its code. Each session stays on its own page.
           </p>
         </div>
       </div>
@@ -55,7 +54,6 @@ export default function ShootsPage() {
             <article className="shoot-card" key={folder.code}>
               <Link href={href} className="shoot-cover">
                 <img src={thumbSrc(folder.cover)} alt="" />
-                {folder.sample && <span>Sample</span>}
               </Link>
               <div className="shoot-card-body">
                 <div>
@@ -65,7 +63,7 @@ export default function ShootsPage() {
                   </p>
                   <Link href={href}>Open folder</Link>
                 </div>
-                <ShootQr url={`${base}${href}`} label={folder.code} />
+                <ShootQr url={`${base}${href}`} label={folder.when} />
               </div>
             </article>
           );

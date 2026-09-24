@@ -350,6 +350,20 @@ a.photo-credit:hover { color: var(--cream); }
   grid-template-columns: 1.4fr 1fr 1fr;
   gap: 14px;
 }
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.album-grid > a { display: block; min-width: 0; }
+.album-grid .shot { width: 100%; min-height: 280px; }
+.album-grid .shot .kicker {
+  letter-spacing: 0.14em;
+  font-size: 10px;
+}
+.album-grid .shot figcaption {
+  line-height: 1.35;
+}
 .shot {
   position: relative;
   overflow: hidden;
@@ -555,6 +569,19 @@ a.photo-credit:hover { color: var(--cream); }
   outline: none;
 }
 .search-wrap input:focus { border-color: var(--orange-500); }
+.search-note {
+  margin: -8px 0 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.search-group {
+  margin: 18px 0 12px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange-400);
+}
 
 /* LIGHTBOX */
 .lb {
@@ -1179,15 +1206,27 @@ label.field input, label.field select, label.field textarea {
   .hero.hero-lead .hero-media img {
     object-position: 62% 50%;
   }
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .section-head p { max-width: none; }
   .filmstrip, .area-grid, .raise-grid, .player-hero, .form-grid, .footer-grid, .shoot-grid {
     grid-template-columns: 1fr;
+  }
+  .album-grid { grid-template-columns: repeat(2, 1fr); }
+  .filmstrip .shot { width: 100%; }
+  .shot.tall { grid-row: auto; min-height: 320px; }
+  .sked-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 16px 0;
   }
   .shoot-folder-head { flex-direction: column; align-items: flex-start; }
   .shoot-photos { columns: 1; }
   .poll-grid { grid-template-columns: 1fr 1fr; }
   .auth-form { grid-template-columns: 1fr 1fr; }
   .masonry { columns: 2; }
-  .sked-row { grid-template-columns: 1fr 1fr; }
   .display.xl { font-size: clamp(44px, 12vw, 64px); }
 }
 
@@ -1198,6 +1237,8 @@ label.field input, label.field select, label.field textarea {
   .nav-brand { min-width: 0; }
   .nav-brand-text strong { font-size: 13px; letter-spacing: 0.04em; }
   .nav-actions .pill { padding: 7px 10px; }
+  .album-grid { grid-template-columns: 1fr; }
+  .album-grid .shot { min-height: 240px; }
   .masonry { columns: 1; }
   .lb-top, .lb-bot { flex-wrap: wrap; align-items: flex-start; }
   .cart-row { grid-template-columns: 72px 1fr; }
