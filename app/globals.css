@@ -1041,73 +1041,6 @@ label.field input, label.field select, label.field textarea {
   width: 0;
   opacity: 0;
 }
-/* HOMECOMING WEEK */
-.hc-banner {
-  position: relative;
-  z-index: 4;
-  display: grid;
-  grid-template-columns: minmax(220px, 320px) 1fr auto;
-  gap: 18px 32px;
-  align-items: center;
-  padding: 16px 28px 18px;
-  overflow: hidden;
-  background: var(--ink);
-  color: var(--paper);
-  border-bottom: 3px solid var(--gold);
-}
-.hc-banner .kicker,
-.hc-banner p,
-.hc-banner li { color: var(--paper); }
-.hc-banner::after {
-  content: "HOMECOMING";
-  position: absolute;
-  right: -8%;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(42px, 6vw, 72px);
-  letter-spacing: 0.12em;
-  line-height: 0.8;
-  color: rgba(251, 246, 238, 0.07);
-  pointer-events: none;
-  white-space: nowrap;
-}
-.hc-lockup { position: relative; z-index: 1; }
-.hc-lockup .kicker { margin-bottom: 6px; }
-.hc-title { font-size: clamp(40px, 5vw, 58px); }
-.hc-lockup p {
-  margin: 8px 0 0;
-  color: var(--cream);
-  font-size: 14px;
-  max-width: 280px;
-}
-.hc-events {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 22px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.hc-events li {
-  min-width: 160px;
-  font-size: 15px;
-  letter-spacing: 0.02em;
-}
-.hc-events strong {
-  display: block;
-  margin-bottom: 2px;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--orange-400);
-}
-.hc-banner .pill { position: relative; z-index: 1; }
-
 .potw-banner {
   margin-bottom: 20px;
   padding: 14px 18px;
@@ -1246,13 +1179,6 @@ label.field input, label.field select, label.field textarea {
   .hero.hero-lead .hero-media img {
     object-position: 62% 50%;
   }
-  .hc-banner {
-    grid-template-columns: 1fr;
-    padding: 16px 20px 18px;
-    gap: 14px;
-  }
-  .hc-banner::after { display: none; }
-  .hc-lockup p { max-width: none; }
   .filmstrip, .area-grid, .raise-grid, .player-hero, .form-grid, .footer-grid, .shoot-grid {
     grid-template-columns: 1fr;
   }
@@ -1272,7 +1198,6 @@ label.field input, label.field select, label.field textarea {
   .nav-brand { min-width: 0; }
   .nav-brand-text strong { font-size: 13px; letter-spacing: 0.04em; }
   .nav-actions .pill { padding: 7px 10px; }
-  .hc-title { font-size: 34px; }
   .masonry { columns: 1; }
   .lb-top, .lb-bot { flex-wrap: wrap; align-items: flex-start; }
   .cart-row { grid-template-columns: 72px 1fr; }
@@ -1282,5 +1207,4 @@ label.field input, label.field select, label.field textarea {
   .auth-form { grid-template-columns: 1fr; }
   .photo-credit { font-size: 8px; letter-spacing: 0.04em; }
   .lb-photo .photo-credit { font-size: 11px; }
-  .hc-events { flex-direction: column; gap: 8px; }
 }

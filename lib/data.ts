@@ -21,17 +21,6 @@ export const facebookPage = {
   note: "The studio page.",
 };
 
-/** Spirit week through the Saturday dance, Pacific Time. */
-export function homecomingLive(now = new Date()) {
-  const day = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "America/Los_Angeles",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(now);
-  return day >= "2026-09-21" && day <= "2026-09-26";
-}
-
 export const staff: StaffMember[] = [
   { name: "Brett Tujague", role: "Head Coach · VP of Athletics", level: "varsity" },
   { name: "Jeff Moenning", role: "Assistant Coach", level: "varsity" },

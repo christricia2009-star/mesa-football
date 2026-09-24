@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Fraunces, Great_Vibes, IBM_Plex_Mono, Outfit } from "next/font/google";
 import Footer from "@/components/Footer";
-import HomecomingBanner from "@/components/HomecomingBanner";
 import Shell from "@/components/Shell";
 import "./globals.css";
 
@@ -49,7 +48,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${display.variable} ${script.variable} ${body.variable} ${serif.variable} ${mono.variable}`}>
         <Shell>
-          <HomecomingBanner />
           {children}
           <Footer />
         </Shell>
