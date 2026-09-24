@@ -13,7 +13,6 @@ const links = [
   { href: "/players", label: "Roster" },
   { href: "/poll", label: "Vote" },
   { href: "/schedule", label: "Schedule" },
-  { href: "/fundraisers", label: "Boost" },
 ];
 
 export default function Nav({ onSearch }: { onSearch: () => void }) {

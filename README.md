@@ -20,7 +20,6 @@ Open [http://localhost:3000](http://localhost:3000).
 - **Game albums** — one gallery per Friday
 - **Roster** — varsity and JV boards, get-to-know blurbs, tagged photos
 - **Schedule** — 2026 slate
-- **Fundraisers** — game-night meals, spirit wear, concessions, program ads, senior banners, 50/50, team dinners, lift-a-thon
 
 Search is also `⌘K` / `Ctrl+K`.
 

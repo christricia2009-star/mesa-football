@@ -1,6 +1,5 @@
 import type {
   Area,
-  Fundraiser,
   Game,
   Player,
   SocialLink,
@@ -689,89 +688,6 @@ export const areas: Area[] = [
     description:
       "Helmets off, handshakes, seniors with families, and the walk back to the locker room.",
     cover: "/gallery/thirteen.jpg",
-  },
-];
-
-export const fundraisers: Fundraiser[] = [
-  {
-    slug: "booster-club",
-    title: "Game night boosters",
-    status: "season",
-    when: "All season",
-    summary:
-      "The parent engine behind Friday nights — film, meals, senior night, and the little things that make a program feel like a family.",
-    how: "Join at the next home game table, or email the studio. Dues go straight back to the night.",
-    contact: "admin@snapcollectibles.com",
-  },
-  {
-    slug: "spirit-wear",
-    title: "Spirit Wear Table",
-    status: "open",
-    when: "Every home Friday",
-    summary:
-      "Hoodies, tees, and the gear you actually want to wear to the grocery store on Saturday.",
-    how: "Cash, card, and Venmo at the plaza table.",
-    contact: "Concessions plaza · home stadium",
-  },
-  {
-    slug: "concessions",
-    title: "Friday Night Concessions",
-    status: "open",
-    when: "Home games · gates open 5:30 PM",
-    summary:
-      "The most important drive of the night might be the one to the snack bar. Volunteers needed each photo night.",
-    how: "Sign up for a quarter. Families who work a shift eat free that night.",
-    contact: "Sign-up clipboard at the gate",
-  },
-  {
-    slug: "program-ads",
-    title: "Game Program Ads",
-    status: "open",
-    when: "Close Friday, Sept 11",
-    summary:
-      "Local businesses and family shout-outs in the printed home program. A full-page message is the best $100 you will spend this fall.",
-    how: "Send a logo or a senior message. We handle layout.",
-    contact: "admin@snapcollectibles.com",
-  },
-  {
-    slug: "senior-banners",
-    title: "Senior Night Banners",
-    status: "coming",
-    when: "Orders open in October",
-    summary:
-      "Fence-line banners for the senior class — name, number, and a photo from this site, printed large enough for grandma to see from the top row.",
-    how: "Buy the frame you want ($1), then send that file with the order.",
-    contact: "admin@snapcollectibles.com",
-  },
-  {
-    slug: "fifty-fifty",
-    title: "50/50 Raffle",
-    status: "open",
-    when: "Halftime, every home game",
-    summary:
-      "Tickets during the first half. Winner announced at the start of the third. Split with the program.",
-    how: "Buy tickets from the student section runners.",
-    contact: "Student section aisle",
-  },
-  {
-    slug: "team-dinner",
-    title: "Thursday Team Dinners",
-    status: "season",
-    when: "Thursdays · 6:00 PM",
-    summary:
-      "Pasta, protein, and a film clip. Host families rotate. The team that eats together hits together.",
-    how: "Volunteer to host or drop a tray. Sign-up goes out Sunday night.",
-    contact: "Team parent text thread",
-  },
-  {
-    slug: "lift-a-thon",
-    title: "Hammerhead Lift-a-Thon",
-    status: "coming",
-    when: "October · weight room",
-    summary:
-      "Linemen win games. Sponsors pledge per rep. Helmets and the sled on full display.",
-    how: "Sponsor a lineman by jersey number. Watch the live board on this site the day of.",
-    contact: "admin@snapcollectibles.com",
   },
 ];
 

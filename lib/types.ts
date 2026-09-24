@@ -57,16 +57,6 @@ export interface Area {
   cover: string;
 }
 
-export interface Fundraiser {
-  slug: string;
-  title: string;
-  status: "open" | "coming" | "season";
-  when: string;
-  summary: string;
-  how: string;
-  contact: string;
-}
-
 export interface Photo {
   id: string;
   src: string;

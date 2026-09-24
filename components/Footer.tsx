@@ -27,7 +27,6 @@ export default function Footer() {
           <Link href="/players">Roster</Link>
           <Link href="/poll">Player of the Week</Link>
           <Link href="/schedule">Schedule</Link>
-          <Link href="/fundraisers">Fundraisers</Link>
         </div>
         <div>
           <h4>The studio</h4>
