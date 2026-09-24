@@ -71,10 +71,6 @@ export default function HomePage() {
             </h2>
             <hr className="rule" />
           </div>
-          <p>
-            Buy one photo at a time, or the entire game for $10. Previews have a
-            watermark. Downloads will be clean.
-          </p>
         </div>
         <HomeFilm />
       </section>
