@@ -2,6 +2,8 @@ import { goldenSierraPhotos } from "./goldenSierraPhotos";
 import { highlandsPhotos } from "./highlandsPhotos";
 import { jvGoldenSierraPhotos } from "./jvGoldenSierraPhotos";
 import { jvHighlandsPhotos } from "./jvHighlandsPhotos";
+import { jvLindhurstPhotos } from "./jvLindhurstPhotos";
+import { lindhurstPhotos } from "./lindhurstPhotos";
 import { oakmontPhotos } from "./oakmontPhotos";
 import { stVincentPhotos } from "./stVincentPhotos";
 import type { Photo } from "./types";
@@ -90,6 +92,8 @@ export const seedPhotos: Photo[] = [
   ...jvGoldenSierraPhotos,
   ...highlandsPhotos,
   ...jvHighlandsPhotos,
+  ...jvLindhurstPhotos,
+  ...lindhurstPhotos,
 ];
 
 export { jerseyQuery, searchPhotoGroups, searchPhotos } from "./photo-search";
